@@ -1,1 +1,1 @@
-# beddele-smart-restaurant
+# meta-smart-restaurant
