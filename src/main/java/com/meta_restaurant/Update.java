@@ -31,7 +31,7 @@ public class Update extends HttpServlet {
 			}
 		}
 		request.setAttribute("user", user);
-		request.getRequestDispatcher("/dashboard.jsp")
+		request.getRequestDispatcher("/signout.jsp")
 				.forward(request, response);
 	}
 }

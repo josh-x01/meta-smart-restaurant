@@ -31,7 +31,6 @@ public class Signup extends HttpServlet {
 								request.getParameter("password"))
 						));
 		}
-
-		response.sendRedirect("/metarestaurant/signin.html");
+		response.sendRedirect("/metarestaurant/signin.jsp");
 	}
 }

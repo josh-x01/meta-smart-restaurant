@@ -19,14 +19,14 @@ public class Signin extends HttpServlet {
 	private boolean isValidPassword;
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-		response.sendRedirect("/metarestaurant/signin.html");
+		response.sendRedirect("/metarestaurant/signin.jsp");
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		// get email from request
 		email = request.getParameter("email");
-		
+
 		// check if either of the field are null or empty
 		if (email != null && email != "") {
 			// get user data using email
@@ -38,13 +38,20 @@ public class Signin extends HttpServlet {
 						request.getParameter("password"),
 						user.getHashedPassword());
 				if (isValidPassword) {
-					// send request and forward to dashboard
+					// send request and forward to services
+					request.setAttribute("password", request.getParameter("password"));
 					request.setAttribute("user", user);
-					request.getRequestDispatcher("/dashboard.jsp")
+					request.getRequestDispatcher("/services.jsp")
 							.forward(request, response);
+				} else {
+					response.sendRedirect("/metarestaurant/signin.jsp");
 				}
+			} else {
+				response.sendRedirect("/metarestaurant/signin.jsp");
 			}
-
+		} else {
+			response.sendRedirect("/metarestaurant/signin.jsp");
 		}
+
 	}
 }
