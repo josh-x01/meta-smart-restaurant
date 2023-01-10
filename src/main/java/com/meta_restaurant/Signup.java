@@ -6,35 +6,34 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import com.meta_restaurant.data_util.*;
+import com.meta_restaurant.users.Customer;
+import com.meta_restaurant.users.User;
 
 /**
  * Servlet implementation class Sign up
  */
 public class Signup extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public Signup() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
+	private String firstName, lastName, email, phone;
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
-	}
+		
+		firstName = request.getParameter("firstName");
+		lastName = request.getParameter("lastName");
+		email = request.getParameter("email");
+		phone = request.getParameter("phone");
+		// check if either of the field are null or empty
+		if (firstName != null && lastName != null && email != null && phone != null) {
+			if (firstName != "" && lastName != "" && email != "" && phone != "")
+				new CustomerDataUtil().createUser(new Customer(
+						firstName, lastName, email, phone));
+		}
 
+		User user = new CustomerDataUtil().getUser(email);
+		
+		request.setAttribute("user", user);
+		
+		request.getRequestDispatcher("/dashboard.jsp")
+				.forward(request, response);
+		
+	}
 }

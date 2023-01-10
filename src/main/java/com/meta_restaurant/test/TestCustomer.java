@@ -17,7 +17,7 @@ public class TestCustomer {
 		}
 		
 		System.out.println("\n\nchecking CustomerDataUtil getUser method");
-		System.out.println(new CustomerDataUtil().getUser("19").getId());
+		System.out.println(new CustomerDataUtil().getUser("no").getId());
 		
 		System.out.println("\n\nchecking CustomerDataUtil createUser method");
 //		user = new Customer("Nafrom", "Abera", "naf@gmail.com", "+25196587463");

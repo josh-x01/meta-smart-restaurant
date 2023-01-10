@@ -73,14 +73,14 @@ public class CustomerDataUtil implements UserDataUtil {
 	}
 	
 	@Override
-	public User getUser(String id) {
+	public User getUser(String email) {
 		// write SQL statement
-		sql = "SELECT * FROM customer WHERE id=?";
+		sql = "SELECT * FROM customer WHERE email=?";
 		try {
 			// create prepare statement
 			preparedStatement = connection.prepareStatement(sql);
 			// pass id to prepare statement
-			preparedStatement.setInt(1, Integer.parseInt(id));
+			preparedStatement.setString(1, email);;
 			// get result from database
 			resultSet = preparedStatement.executeQuery();
 			// create User object from the data
@@ -94,7 +94,7 @@ public class CustomerDataUtil implements UserDataUtil {
 			}
 
 		} catch (SQLException e) {
-			System.err.println("[ERROR] Failed to get " + id + "'s data!");
+			System.err.println("[ERROR] Failed to get " + email + "'s data!");
 		} finally {
 			try {
 				// close all connections
