@@ -6,6 +6,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import com.meta_restaurant.users.User;
+
 import com.meta_restaurant.data_util.CustomerDataUtil;
 
 /**
@@ -20,6 +21,8 @@ public class Signin extends HttpServlet {
 	}
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+		
 		email = request.getParameter("email");
 		// check if either of the field are null or empty
 		if (email != null && email != "") 
@@ -31,4 +34,6 @@ public class Signin extends HttpServlet {
 		}
 	}
 
+	
+	
 }

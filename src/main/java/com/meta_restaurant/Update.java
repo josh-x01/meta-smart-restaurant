@@ -24,14 +24,15 @@ public class Update extends HttpServlet {
 		// check if either of the field are null or empty
 		if (firstName != null && lastName != null && email != null && phone != null) {
 			if (firstName != "" && lastName != "" && email != "" && phone != "") {
+				System.out.println("before init");
 				user = new Customer(firstName, lastName, email, phone);
 				new CustomerDataUtil().updateUser(user);
 			}			
 		}
-
+		System.out.println(email);
+//		System.out.println(user.getEmail());
 		request.setAttribute("user", user);
 		request.getRequestDispatcher("/dashboard.jsp")
 				.forward(request, response);
 	}
-
 }

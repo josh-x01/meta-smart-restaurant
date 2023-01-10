@@ -161,8 +161,8 @@ public class CustomerDataUtil implements UserDataUtil {
 	@Override
 	public void updateUser(User user) {
 		// SQL statement
-		sql = "UPDATE customer SET firstName=?, lastName=?,"
-		+"email=?, phone=? WHERE email=?;";
+		sql = "UPDATE customer SET firstName=?, lastName=?, "
+		+"email=?, phone=? WHERE email=?";
 		try {
 			// create prepare statement
 			preparedStatement = connection.prepareStatement(sql);
@@ -177,6 +177,7 @@ public class CustomerDataUtil implements UserDataUtil {
 			System.out.println("[OK] " + user.getFirstName() + " update account successfully!");
 		} catch (SQLException e) {
 			System.err.println("[ERROR] Failed to update a user!");
+			e.printStackTrace();
 		} finally {
 			try {
 				// close all connections
@@ -233,7 +234,5 @@ public class CustomerDataUtil implements UserDataUtil {
 				System.out.println("[ERROR] Failed to close connections!");
 			}
 		}
-		
 	}
-
 }

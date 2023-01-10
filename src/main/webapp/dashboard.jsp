@@ -21,8 +21,8 @@
                     value="${user.getLastName() }"/>
                 </div>
                 <div class="input">
-                    <input type="text" name="email" placeholder="Email"
-                    value="${user.getEmail() }" disabled/>
+                    <input type="hidden" name="email" placeholder="Email"
+                    value="${user.getEmail() }" />
                 </div>
                 <div class="input">
                     <input type="text" name="phone" placeholder="Phone Number"

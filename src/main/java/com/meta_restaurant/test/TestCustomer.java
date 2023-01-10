@@ -6,6 +6,7 @@ import com.meta_restaurant.data_util.CustomerDataUtil;
 import com.meta_restaurant.users.Customer;
 import com.meta_restaurant.users.User;
 
+
 public class TestCustomer {
 	public static void main(String[] args) {
 		// checking CustomerDataUtil methods
@@ -24,10 +25,14 @@ public class TestCustomer {
 //		new CustomerDataUtil().createUser(user);
 		
 		System.out.println("\n\nchecking CustomerDataUtil updateUser method");
-		user = new Customer("Nizasser", "tola", "asdas", "+25196587463");
+		user = new Customer("Nizasser", "tola", "lami@gmail.com", "+78hhvyt7");
 		new CustomerDataUtil().updateUser(user);
 		
 		System.out.println("\n\nchecking CustomerDataUtil deleteUser method");
-		new CustomerDataUtil().deleteUser("");
-	}
+		new CustomerDataUtil().deleteUser("abee@gmail.com");
+	} 
+	
+	
+	
+
 }
