@@ -53,7 +53,8 @@ public class CustomerDataUtil implements UserDataUtil {
 						resultSet.getString(2),
 						resultSet.getString(3),
 						resultSet.getString(4),
-						resultSet.getString(5)		
+						resultSet.getString(5),
+						resultSet.getString(6)
 						));
 			}
 		} catch (SQLException e) {
@@ -110,7 +111,9 @@ public class CustomerDataUtil implements UserDataUtil {
 						resultSet.getString(2),
 						resultSet.getString(3),
 						resultSet.getString(4),
-						resultSet.getString(5));
+						resultSet.getString(5),
+						resultSet.getString(6)
+						);
 			}
 
 		} catch (SQLException e) {
@@ -131,8 +134,8 @@ public class CustomerDataUtil implements UserDataUtil {
 	@Override
 	public void createUser(User user) {
 		// SQL statement
-		sql = "INSERT INTO customer (firstName, lastName, email, phone)"
-				+ "VALUE (?,?,?,?)";
+		sql = "INSERT INTO customer (firstName, lastName, email, phone, hashedPassword)"
+				+ "VALUE (?,?,?,?,?)";
 		try {
 			// create prepare statement
 			preparedStatement = connection.prepareStatement(sql);
@@ -141,6 +144,7 @@ public class CustomerDataUtil implements UserDataUtil {
 			preparedStatement.setString(2, user.getLastName());
 			preparedStatement.setString(3, user.getEmail());
 			preparedStatement.setString(4, user.getPhone());
+			preparedStatement.setString(5, user.getHashedPassword());
 			// execute prepare statement
 			preparedStatement.execute();
 			System.out.println("[OK] " + user.getFirstName() + " creates account successfully!");
@@ -162,7 +166,7 @@ public class CustomerDataUtil implements UserDataUtil {
 	public void updateUser(User user) {
 		// SQL statement
 		sql = "UPDATE customer SET firstName=?, lastName=?, "
-		+"email=?, phone=? WHERE email=?";
+		+"email=?, phone=?, hashedPassword=? WHERE email=?";
 		try {
 			// create prepare statement
 			preparedStatement = connection.prepareStatement(sql);
@@ -171,7 +175,8 @@ public class CustomerDataUtil implements UserDataUtil {
 			preparedStatement.setString(2, user.getLastName());
 			preparedStatement.setString(3, user.getEmail());
 			preparedStatement.setString(4, user.getPhone());
-			preparedStatement.setString(5, user.getEmail());
+			preparedStatement.setString(5, user.getHashedPassword());
+			preparedStatement.setString(6, user.getEmail());
 			// execute prepare statement
 			preparedStatement.execute();
 			System.out.println("[OK] " + user.getFirstName() + " update account successfully!");

@@ -6,6 +6,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import com.meta_restaurant.data_util.*;
+import com.meta_restaurant.data_util.security.PasswordHash;
 import com.meta_restaurant.users.Customer;
 /**
  * Servlet implementation class Sign up
@@ -25,10 +26,12 @@ public class Signup extends HttpServlet {
 		if (firstName != null && lastName != null && email != null && phone != null) {
 			if (firstName != "" && lastName != "" && email != "" && phone != "")
 				new CustomerDataUtil().createUser(new Customer(
-						firstName, lastName, email, phone));
+						firstName, lastName, email, phone,
+						new PasswordHash().generateStorngPasswordHash(
+								request.getParameter("password"))
+						));
 		}
 
 		response.sendRedirect("/metarestaurant/signin.html");
-		
 	}
 }

@@ -7,8 +7,10 @@ public interface User {
 	abstract void setFirstName(String fistName);
 	abstract String getLastName();
 	abstract void setLastName(String lastName);
-	abstract String getEmail();
-	abstract void setEmail(String email);
 	abstract String getPhone();
 	abstract void setPhone(String phone);
+	abstract String getEmail();
+	abstract void setEmail(String email);
+	public String getHashedPassword();
+	public void setHashedPassword(String hashedPassword);
 }

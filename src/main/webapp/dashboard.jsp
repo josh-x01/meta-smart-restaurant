@@ -28,6 +28,9 @@
                     <input type="text" name="phone" placeholder="Phone Number"
                     value="${user.getPhone() }"/>
                 </div>
+                <div class="input">
+                    <input type="password" name="password" placeholder="password"/>
+                </div>
             </div>
             <div class="submit">
                 <input type="submit" name="submit" value="Update">
