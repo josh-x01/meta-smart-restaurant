@@ -15,11 +15,15 @@
 		.forward(request, response);
 	} else {
 		user = (User) session.getAttribute("userSession");
+		if (request.getAttribute("user") != null) {
+			user = (User) request.getAttribute("user");
+		}
 	}
 %>
     <div>
         <form action="/metarestaurant/update" method="post">
             <div class="user-input">
+            	<input type="hidden" name="command" value="update">
                 <div class="input">
                     <input type="text" name="firstName" placeholder="First Name"
                     value="<%= user.getFirstName() %>"/>
@@ -45,6 +49,16 @@
                 <input type="submit" name="submit" value="Update">
             </div>
         </form>
+        
+        <form action="/metarestaurant/update" method="post">
+			<div class="input">
+				<input type="hidden" name="command" value="delete">
+				<input type="hidden" name="email" placeholder="Email"
+                    value="<%= user.getEmail() %>" />
+				<input type="submit" name="submit" value="Delete Account">
+			</div>
+		</form>
+        
     </div>
 </body>
 </html>

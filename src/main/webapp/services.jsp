@@ -12,7 +12,7 @@
 	if (user != null) {
 		session.setAttribute("userSession", user);
 		session.setAttribute("password", request.getAttribute("password"));
-		session.setMaxInactiveInterval(60*60*24);
+		session.setMaxInactiveInterval(60*60*60*24);
 	}
 
 	if (session.getAttribute("userSession") == null) {
