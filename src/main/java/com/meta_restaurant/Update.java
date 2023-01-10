@@ -5,30 +5,33 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import com.meta_restaurant.data_util.*;
+
+import com.meta_restaurant.data_util.CustomerDataUtil;
 import com.meta_restaurant.users.Customer;
+import com.meta_restaurant.users.User;
+
 /**
- * Servlet implementation class Sign up
+ * Servlet implementation class Update
  */
-public class Signup extends HttpServlet {
+public class Update extends HttpServlet {
 	private String firstName, lastName, email, phone;
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-		response.sendRedirect("/metarestaurant/signup.html");
-	}
+	private User user;
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
 		firstName = request.getParameter("firstName");
 		lastName = request.getParameter("lastName");
 		email = request.getParameter("email");
 		phone = request.getParameter("phone");
 		// check if either of the field are null or empty
 		if (firstName != null && lastName != null && email != null && phone != null) {
-			if (firstName != "" && lastName != "" && email != "" && phone != "")
-				new CustomerDataUtil().createUser(new Customer(
-						firstName, lastName, email, phone));
+			if (firstName != "" && lastName != "" && email != "" && phone != "") {
+				user = new Customer(firstName, lastName, email, phone);
+				new CustomerDataUtil().updateUser(user);
+			}			
 		}
 
-		response.sendRedirect("/metarestaurant/signin.html");
-		
+		request.setAttribute("user", user);
+		request.getRequestDispatcher("/dashboard.jsp")
+				.forward(request, response);
 	}
+
 }

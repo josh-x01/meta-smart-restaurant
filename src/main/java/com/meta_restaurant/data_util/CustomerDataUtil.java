@@ -40,7 +40,7 @@ public class CustomerDataUtil implements UserDataUtil {
 	public List<User> getAllUsers() {
 		// create array to store users
 		List<User> users = new ArrayList<>();
-		// write SQL statement
+		// SQL statement
 		sql = "SELECT * FROM customer";
 		try {
 			// initialize statement
@@ -48,9 +48,8 @@ public class CustomerDataUtil implements UserDataUtil {
 			// send SQL statement to statement
 			resultSet = statement.executeQuery(sql);
 			// loop through result and add to users
-			while (resultSet.next()) {	
+			while (resultSet.next()) {
 				users.add(new Customer(
-						resultSet.getInt(1),
 						resultSet.getString(2),
 						resultSet.getString(3),
 						resultSet.getString(4),
@@ -73,20 +72,41 @@ public class CustomerDataUtil implements UserDataUtil {
 	}
 	
 	@Override
-	public User getUser(String email) {
-		// write SQL statement
+	public <T> User getUser(T t) {
+		// SQL statement
 		sql = "SELECT * FROM customer WHERE email=?";
+		
+		// identify parameter key type
+        if (t instanceof Integer) {
+        	sql = "SELECT * FROM customer WHERE id=?";
+        } else if (t instanceof String) {
+            try {
+                Integer.parseInt((String) t);
+                sql = "SELECT * FROM customer WHERE phone=?";
+            } catch (NumberFormatException e) {
+            	sql = "SELECT * FROM customer WHERE email=?";
+            }
+        }
+		
 		try {
 			// create prepare statement
 			preparedStatement = connection.prepareStatement(sql);
-			// pass id to prepare statement
-			preparedStatement.setString(1, email);;
+			// pass the request key to prepare statement
+	        if (t instanceof Integer) {
+	        	preparedStatement.setInt(1, (Integer) t);
+	        } else if (t instanceof String) {
+	            try {
+	                Integer.parseInt((String) t);
+	                preparedStatement.setString(1, (String) t);;
+	            } catch (NumberFormatException e) {
+	            	preparedStatement.setString(1, (String) t);;
+	            }
+	        }
 			// get result from database
 			resultSet = preparedStatement.executeQuery();
 			// create User object from the data
 			if (resultSet.next()) {
 				return new Customer(
-						resultSet.getInt(1),
 						resultSet.getString(2),
 						resultSet.getString(3),
 						resultSet.getString(4),
@@ -94,7 +114,7 @@ public class CustomerDataUtil implements UserDataUtil {
 			}
 
 		} catch (SQLException e) {
-			System.err.println("[ERROR] Failed to get " + email + "'s data!");
+			System.err.println("[ERROR] Failed to get user data!");
 		} finally {
 			try {
 				// close all connections
@@ -110,21 +130,20 @@ public class CustomerDataUtil implements UserDataUtil {
 
 	@Override
 	public void createUser(User user) {
-		// write SQL statement
-		
+		// SQL statement
+		sql = "INSERT INTO customer (firstName, lastName, email, phone)"
+				+ "VALUE (?,?,?,?)";
 		try {
 			// create prepare statement
-			sql = "INSERT INTO customer (firstName, lastName, email, phone)"
-					+ "VALUE (?,?,?,?)";
 			preparedStatement = connection.prepareStatement(sql);
 			// sent data to prepare statement
-			preparedStatement.setString(1, user.getFistName());
+			preparedStatement.setString(1, user.getFirstName());
 			preparedStatement.setString(2, user.getLastName());
 			preparedStatement.setString(3, user.getEmail());
 			preparedStatement.setString(4, user.getPhone());
 			// execute prepare statement
 			preparedStatement.execute();
-			System.out.println("[OK] " + user.getFistName() + " creates account successfully!");
+			System.out.println("[OK] " + user.getFirstName() + " creates account successfully!");
 		} catch (SQLException e) {
 			System.err.println("[ERROR] Failed to create a user!");
 			e.printStackTrace();
@@ -141,21 +160,21 @@ public class CustomerDataUtil implements UserDataUtil {
 
 	@Override
 	public void updateUser(User user) {
-		// write SQL statement
+		// SQL statement
+		sql = "UPDATE customer SET firstName=?, lastName=?,"
+		+"email=?, phone=? WHERE email=?;";
 		try {
 			// create prepare statement
-			sql = "UPDATE customer SET firstName=?, lastName=?,"
-			+"email=?, phone=? WHERE id=?;";
 			preparedStatement = connection.prepareStatement(sql);
 			// sent data to prepare statement
-			preparedStatement.setString(1, user.getFistName());
+			preparedStatement.setString(1, user.getFirstName());
 			preparedStatement.setString(2, user.getLastName());
 			preparedStatement.setString(3, user.getEmail());
 			preparedStatement.setString(4, user.getPhone());
-			preparedStatement.setInt(5, user.getId());
+			preparedStatement.setString(5, user.getEmail());
 			// execute prepare statement
 			preparedStatement.execute();
-			System.out.println("[OK] " + user.getFistName() + " update account successfully!");
+			System.out.println("[OK] " + user.getFirstName() + " update account successfully!");
 		} catch (SQLException e) {
 			System.err.println("[ERROR] Failed to update a user!");
 		} finally {
@@ -171,14 +190,35 @@ public class CustomerDataUtil implements UserDataUtil {
 	}
 
 	@Override
-	public void deleteUser(String id) {
-		// write SQL statement
-		sql = "DELETE FROM customer WHERE id=?";
+	public <T> void deleteUser(T t) {
+		// identify parameter key for SQL statement
+        if (t instanceof Integer) {
+    		sql = "DELETE FROM customer WHERE id=?";
+        } else if (t instanceof String) {
+            try {
+            	Integer.parseInt((String) t);
+        		sql = "DELETE FROM customer WHERE phone=?";
+            } catch (NumberFormatException e) {
+        		sql = "DELETE FROM customer WHERE email=?";
+            }
+        }
+
 		try {
 			// create prepare statement
 			preparedStatement = connection.prepareStatement(sql);
-			// send id to prepare statement
-			preparedStatement.setInt(1, Integer.parseInt(id));
+			// pass the request key to prepare statement
+	        if (t instanceof Integer) {
+	        	preparedStatement.setInt(1, (Integer) t);
+	        } else if (t instanceof String) {
+	            try {
+	                Integer.parseInt((String) t);
+	                preparedStatement.setString(1, (String) t);;
+	            } catch (NumberFormatException e) {
+	            	preparedStatement.setString(1, (String) t);;
+	            } finally {
+	            	System.out.println(sql);
+	            }
+	        }
 			// execute prepare statement
 			preparedStatement.execute();
 			System.out.println("[OK] user deleted successfully!");

@@ -3,11 +3,11 @@ package com.meta_restaurant.users;
 
 public class Customer implements User{
 	
-	private String fistName, lastName, email, phone;
+	private String firstName, lastName, email, phone;
 	private int id;
 
 	public Customer(String fistName, String lastName, String email, String phone) {
-		this.fistName = fistName;
+		this.firstName = fistName;
 		this.lastName = lastName;
 		this.email = email;
 		this.phone = phone;
@@ -15,7 +15,7 @@ public class Customer implements User{
 	
 	public Customer(int id, String fistName, String lastName, String email, String phone) {
 		this.id = id;
-		this.fistName = fistName;
+		this.firstName = fistName;
 		this.lastName = lastName;
 		this.email = email;
 		this.phone = phone;
@@ -33,12 +33,12 @@ public class Customer implements User{
 		this.id = id;
 	}
 
-	public String getFistName() {
-		return fistName;
+	public String getFirstName() {
+		return firstName;
 	}
 
-	public void setFistName(String fistName) {
-		this.fistName = fistName;
+	public void setFirstName(String fistName) {
+		this.firstName = fistName;
 	}
 
 	public String getLastName() {

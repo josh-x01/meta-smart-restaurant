@@ -3,8 +3,8 @@ package com.meta_restaurant.users;
 public interface User {
 	abstract int getId();
 	abstract void setId(int id);
-	abstract String getFistName();
-	abstract void setFistName(String fistName);
+	abstract String getFirstName();
+	abstract void setFirstName(String fistName);
 	abstract String getLastName();
 	abstract void setLastName(String lastName);
 	abstract String getEmail();

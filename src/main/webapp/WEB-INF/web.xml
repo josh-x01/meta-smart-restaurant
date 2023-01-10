@@ -17,7 +17,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>Home</servlet-name>
-    <url-pattern>/Home</url-pattern>
+    <url-pattern>/home</url-pattern>
   </servlet-mapping>
   <servlet>
     <description></description>
@@ -27,6 +27,26 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>Signup</servlet-name>
-    <url-pattern>/Signup</url-pattern>
+    <url-pattern>/signup</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Signin</display-name>
+    <servlet-name>Signin</servlet-name>
+    <servlet-class>com.meta_restaurant.Signin</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Signin</servlet-name>
+    <url-pattern>/signin</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Update</display-name>
+    <servlet-name>Update</servlet-name>
+    <servlet-class>com.meta_restaurant.Update</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Update</servlet-name>
+    <url-pattern>/update</url-pattern>
   </servlet-mapping>
 </web-app>

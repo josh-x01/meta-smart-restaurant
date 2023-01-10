@@ -8,9 +8,9 @@ public interface UserDataUtil {
 	String DBRegister = "com.mysql.jdbc.Driver";
 	String DBHost = "jdbc:mysql://localhost:3306/meta";
 	
-	User getUser(String id);
+	<T> User getUser(T t);
 	void createUser(User user);
 	void updateUser(User user);
-	void deleteUser(String id);
+	<T> void deleteUser(T t);
 	List<User> getAllUsers();
 }
