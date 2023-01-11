@@ -58,7 +58,7 @@
 				<input type="submit" name="submit" value="Delete Account">
 			</div>
 		</form>
-        
     </div>
+    <a href="/metarestaurant/signout.jsp">Logout</a>
 </body>
 </html>

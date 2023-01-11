@@ -49,4 +49,14 @@
     <servlet-name>Update</servlet-name>
     <url-pattern>/update</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Image</display-name>
+    <servlet-name>Image</servlet-name>
+    <servlet-class>com.meta_restaurant.Image</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Image</servlet-name>
+    <url-pattern>/Image</url-pattern>
+  </servlet-mapping>
 </web-app>

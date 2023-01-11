@@ -5,7 +5,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Signin</title>	
+	<title>Signin</title>
 </head>
 <body>
 <%
@@ -28,6 +28,7 @@
                 <input type="submit" name="submit" value="submit">
             </div>
         </form>
+        <a href="/metarestaurant/signup.html">Sign up</a>
     </div>
 </body>
 </html>

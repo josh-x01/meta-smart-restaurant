@@ -5,8 +5,8 @@ import java.util.List;
 
 public interface UserDataUtil {
 	
-	String DBRegister = "com.mysql.jdbc.Driver";
-	String DBHost = "jdbc:mysql://localhost:3306/meta";
+	public String DBRegister = "com.mysql.jdbc.Driver";
+	public String DBHost = "jdbc:mysql://localhost:3306/meta";
 	
 	<T> User getUser(T t);
 	void createUser(User user);

@@ -22,7 +22,7 @@
 %>	
  <h1>This is your service page</h1>
  
- <a href="/metarestaurant/signout.jsp">Sign out</a>
+
  <a href="/metarestaurant/dashboard.jsp">Dashboard</a>
  
 </body>
