@@ -6,12 +6,9 @@
 
 <% 
 
-Blob image = null;
-byte[ ] imgData = null ; 
+ Blob image  = new FileHandler().getBlob();
 
-image = new FileHandler().getBlob();
-
-imgData = image.getBytes(1,(int)image.length());
+byte[ ] imgData = image.getBytes(1,(int)image.length());
 
 response.setContentType("image/gif");
 

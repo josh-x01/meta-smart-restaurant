@@ -36,27 +36,9 @@ public class FileHandler {
 		}
 	}
 	
-	public BufferedImage getImage() {
-    	Blob blob = null;
-        String sql = "SELECT img FROM image WHERE id=5";
-        
-        try {
-            prepareStatement = connection.prepareStatement(sql);
-            resultSet = prepareStatement.executeQuery();
-            if (resultSet.next()) {
-                blob = (Blob) resultSet.getBlob("img");
-            }
-            return ImageIO.read(blob.getBinaryStream()) ;
-        } catch (Exception e){
-        	e.printStackTrace();
-        }
-        return null;
-	}
-	
 	public Blob getBlob() {
     	Blob blob = null;
-        String sql = "SELECT img FROM image WHERE id=5";
-        
+        String sql = "SELECT img FROM image WHERE id=9";
         try {
             prepareStatement = connection.prepareStatement(sql);
             resultSet = prepareStatement.executeQuery();

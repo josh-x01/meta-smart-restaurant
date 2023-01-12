@@ -1,6 +1,9 @@
 package com.meta_restaurant;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -19,33 +22,25 @@ import jakarta.servlet.http.HttpServletResponse;
 public class Image extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Connection con = null;
 		PreparedStatement ps = null;
+		File image = new File("C:/Users/eyasu/OneDrive/Pictures/dv.jpg");
+		FileInputStream fis = new FileInputStream(image);
 		try {
 
 			Class.forName("com.mysql.jdbc.Driver");
 			 con = DriverManager.getConnection("jdbc:mysql://localhost:3306/jdbc",
 					"root", "root");
 		       
-			 String sql = "SELECT img FROM jdbc.image WHERE id=5";
+			 String sql = "insert into image (img) value(?)";
 		         ps = con.prepareStatement(sql);
 		        
-		         ResultSet rs = ps.executeQuery();
-
-		        while (rs.next()) {
-		            byte[] imgData = rs.getBytes("img"); // blob field 
-		            request.setAttribute("rvi", "Ravinath");
-		            rs.getString("teatitle");
-
-		            String encode = Base64.getEncoder().encodeToString(imgData);
-		            request.setAttribute("imgBase", encode);
-		        }
+		         ps.setBlob(0, (InputStream) fis, (int) (image.length()) );
+		         
+		         ps.execute();
 			
-			
-			
-			
-			System.out.println("[OK] Successfully connected!");
+			System.out.println("[OK] Successfully Uploaded!");
 		} catch (SQLException e) {
 			System.err.println("[ERROR] Failed to connect with the meta database!");
 		} catch (Exception e) {
