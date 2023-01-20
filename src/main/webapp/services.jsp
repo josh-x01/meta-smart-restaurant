@@ -23,7 +23,7 @@
  <h1>This is your service page</h1>
  
 
- <a href="/metarestaurant/dashboard.jsp">Dashboard</a>
+ <a href="/alimama/dashboard.jsp">Dashboard</a>
  
 </body>
 </html>

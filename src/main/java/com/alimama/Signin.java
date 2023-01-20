@@ -20,7 +20,7 @@ public class Signin extends HttpServlet {
 	private boolean isValidPassword;
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-		response.sendRedirect("/metarestaurant/signin.jsp");
+		response.sendRedirect("/alimama/signin.jsp");
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -45,13 +45,13 @@ public class Signin extends HttpServlet {
 					request.getRequestDispatcher("/services.jsp")
 							.forward(request, response);
 				} else {
-					response.sendRedirect("/metarestaurant/signin.jsp");
+					response.sendRedirect("/alimama/signin.jsp");
 				}
 			} else {
-				response.sendRedirect("/metarestaurant/signin.jsp");
+				response.sendRedirect("/alimama/signin.jsp");
 			}
 		} else {
-			response.sendRedirect("/metarestaurant/signin.jsp");
+			response.sendRedirect("/alimama/signin.jsp");
 		}
 
 	}

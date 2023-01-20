@@ -9,7 +9,7 @@
 <body>
 <%
 	session.invalidate();
-	response.sendRedirect("/metarestaurant/signin.jsp");
+	response.sendRedirect("/alimama/signin.jsp");
 %>
 </body>
 </html>

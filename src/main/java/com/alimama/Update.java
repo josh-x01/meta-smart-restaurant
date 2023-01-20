@@ -38,7 +38,7 @@ public class Update extends HttpServlet {
 			}
 		} else if (request.getParameter("command").equals("delete")){
 			new CustomerDataUtil().deleteUser(email);
-			response.sendRedirect("/metarestaurant/signout.jsp");
+			response.sendRedirect("/alimama/signout.jsp");
 		}
 	}
 }

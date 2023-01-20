@@ -21,7 +21,7 @@
 	}
 %>
     <div>
-        <form action="/metarestaurant/update" method="post">
+        <form action="/alimama/update" method="post">
             <div class="user-input">
             	<input type="hidden" name="command" value="update">
                 <div class="input">
@@ -50,7 +50,7 @@
             </div>
         </form>
         
-        <form action="/metarestaurant/update" method="post">
+        <form action="/alimama/update" method="post">
 			<div class="input">
 				<input type="hidden" name="command" value="delete">
 				<input type="hidden" name="email" placeholder="Email"
@@ -59,6 +59,6 @@
 			</div>
 		</form>
     </div>
-    <a href="/metarestaurant/signout.jsp">Logout</a>
+    <a href="/alimama/signout.jsp">Logout</a>
 </body>
 </html>

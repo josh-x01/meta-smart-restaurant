@@ -11,11 +11,11 @@
 <%
 	User user = (User) session.getAttribute("userSession");
 	if (user != null) {
-		response.sendRedirect("/metarestaurant/services.jsp");
+		response.sendRedirect("/alimama/services.jsp");
 	}
 %>
     <div>
-        <form action="/metarestaurant/signin" method="post">
+        <form action="/alimama/signin" method="post">
             <div class="user-input">
                 <div class="input">
                     <input type="text" name="email" placeholder="Email"/>
@@ -28,7 +28,7 @@
                 <input type="submit" name="submit" value="submit">
             </div>
         </form>
-        <a href="/metarestaurant/signup.html">Sign up</a>
+        <a href="/alimama/signup.html">Sign up</a>
     </div>
 </body>
 </html>
