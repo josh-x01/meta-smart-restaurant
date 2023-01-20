@@ -9,13 +9,14 @@ import java.io.IOException;
 import com.alimama.data_util.*;
 import com.alimama.data_util.security.PasswordHash;
 import com.alimama.users.Customer;
+import com.alimama.mail.CustomerMailing;
 /**
  * Servlet implementation class Sign up
  */
 public class Signup extends HttpServlet {
 	private String firstName, lastName, email, phone;
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-		response.sendRedirect("/metarestaurant/signup.html");
+		response.sendRedirect("/alimama/signup.html");
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
@@ -32,6 +33,7 @@ public class Signup extends HttpServlet {
 								request.getParameter("password"))
 						));
 		}
+		new CustomerMailing(email, firstName);
 		response.sendRedirect("/alimama/signin.jsp");
 	}
 }

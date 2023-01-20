@@ -14,5 +14,8 @@
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
 	<classpathentry kind="lib" path="C:/Users/eyasu/eclipse-workspace2/alimama/dependency/mysql-connector-j-8.0.32.jar"/>
+	<classpathentry kind="lib" path="C:/Users/eyasu/eclipse-workspace2/alimama/dependency/activation-1.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/eyasu/eclipse-workspace2/alimama/dependency/javax.mail-1.6.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/eyasu/eclipse-workspace2/alimama/dependency/javax.mail-api-1.6.2.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
