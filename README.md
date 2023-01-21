@@ -1,1 +1,0 @@
-# alimama-smart-restaurant
