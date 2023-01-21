@@ -15,6 +15,7 @@ import com.alimama.mail.CustomerMailing;
  * Servlet implementation class Update
  */
 public class Update extends HttpServlet {
+	private static final long serialVersionUID = 1L;
 	private String firstName, lastName, email, phone;
 	private User user;
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

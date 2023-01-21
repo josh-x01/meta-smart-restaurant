@@ -14,6 +14,7 @@ import com.alimama.mail.CustomerMailing;
  * Servlet implementation class Sign up
  */
 public class Signup extends HttpServlet {
+	private static final long serialVersionUID = 1L;
 	private String firstName, lastName, email, phone;
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 		response.sendRedirect("/alimama/signup.html");

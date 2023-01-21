@@ -596,6 +596,11 @@ label.valid {
 
   .form-title {
     text-align: center; } }
+@media screen and (max-width: 520px) {
+	img {
+		width: 200px;
+	}
+}
 @media screen and (max-width: 400px) {
   .social-login {
     flex-direction: column;

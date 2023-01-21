@@ -5,7 +5,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.IOException;
 import com.alimama.users.User;
 import com.alimama.data_util.security.PasswordHash;
 
@@ -15,6 +14,7 @@ import com.alimama.data_util.CustomerDataUtil;
  * Servlet implementation class Signin
  */
 public class Signin extends HttpServlet {
+	private static final long serialVersionUID = 1L;
 	private String email;
 	private User user;
 	private boolean isValidPassword;
