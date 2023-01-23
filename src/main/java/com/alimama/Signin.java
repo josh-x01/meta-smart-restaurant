@@ -27,7 +27,6 @@ public class Signin extends HttpServlet {
 		
 		// get email from request
 		email = request.getParameter("email");
-		System.out.print(request.getParameter("password"));
 		// check if either of the field are null or empty
 		if (email != null && email != "") {
 			// get user data using email

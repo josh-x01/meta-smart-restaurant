@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="com.alimama.users.User"%>
+    pageEncoding="UTF-8" import="com.alimama.users.User"
+    import="com.alimama.data_util.CustomerDataUtil"
+    import="com.alimama.users.Customer"%>
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,10 +17,9 @@
 		session.setAttribute("password", request.getAttribute("password"));
 		session.setMaxInactiveInterval(60*60*60*24);
 	}
-	
+
 	if (session.getAttribute("userSession") == null) {
-		request.getRequestDispatcher("/signin.jsp")
-		.forward(request, response);
+		response.sendRedirect("/alimama/signin");
 	} else {
 %>		
 	

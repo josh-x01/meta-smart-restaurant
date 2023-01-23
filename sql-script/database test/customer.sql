@@ -9,4 +9,4 @@ values ("customer1", "customer1", "phone1", "email1", "hash1"),
 ("customer3", "customer3", "phone3", "email3", "hash3");
 
 
-DELETE FROM alimamadb.customer where cid=1;
+DELETE FROM alimamadb.customer WHERE cid=11;
