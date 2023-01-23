@@ -34,7 +34,7 @@ public class Signup extends HttpServlet {
 								request.getParameter("password"))
 						));
 		}
-		new CustomerMailing(email, firstName, lastName, phone).welcome();
+		new CustomerMailing(email, firstName, lastName, phone, "welcome");
 		response.sendRedirect("/alimama/signin.jsp");
 	}
 }

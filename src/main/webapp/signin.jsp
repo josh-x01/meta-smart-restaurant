@@ -27,7 +27,7 @@
 			<div class="container">
 				<h1 class="header">WELLCOME TO ALIMAMA</h1>
 				<div class="signin-content">
-					
+
 					<div class="signin-image">
 						<figure>
 							<img src="./materials/images/signin-image.jpg" alt="sing up image" width="500">
@@ -36,8 +36,8 @@
 							account</a>
 					</div>
 
-					<div class="signin-form">
-						
+					<div class="signin-foworm">
+
 
 						<h2 class="form-title">Sign in</h2>
 						<form method="post" action="/alimama/signin" class="register-form" id="login-form">

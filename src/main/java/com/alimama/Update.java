@@ -32,7 +32,7 @@ public class Update extends HttpServlet {
 									request.getParameter("password")
 							));
 					new CustomerDataUtil().updateUser(user);
-					new CustomerMailing(email, firstName, lastName, phone).update();
+					new CustomerMailing(email, firstName, lastName, phone, "updated");
 					request.setAttribute("user", user);
 					request.setAttribute("password", request.getParameter("password"));
 					request.getRequestDispatcher("/dashboard.jsp")
@@ -41,7 +41,7 @@ public class Update extends HttpServlet {
 			}
 		} else if (request.getParameter("command").equals("delete")){
 			new CustomerDataUtil().deleteUser(email);
-			new CustomerMailing(email, firstName, lastName, phone).delete();
+			new CustomerMailing(email, firstName, lastName, phone, "deleted");
 			response.sendRedirect("/alimama/signout.jsp");
 		}
 	}
