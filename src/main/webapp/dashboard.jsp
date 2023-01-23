@@ -38,7 +38,7 @@
                 </div>
                 <div class="input">
                     <input type="text" name="phone" placeholder="Phone Number"
-                    value="<%= user.getPhone() %>"/>
+                    value="<%= user.getEmail() %>"/>
                 </div>
                 <div class="input">
                     <input type="password" name="password" placeholder="password"

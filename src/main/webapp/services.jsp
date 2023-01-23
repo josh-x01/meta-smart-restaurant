@@ -14,16 +14,18 @@
 		session.setAttribute("password", request.getAttribute("password"));
 		session.setMaxInactiveInterval(60*60*60*24);
 	}
-
+	
 	if (session.getAttribute("userSession") == null) {
 		request.getRequestDispatcher("/signin.jsp")
 		.forward(request, response);
-	}
-%>	
+	} else {
+%>		
+	
+
  <h1>This is your service page</h1>
  
 
  <a href="/alimama/dashboard.jsp">Dashboard</a>
- 
+<%}%>	
 </body>
 </html>

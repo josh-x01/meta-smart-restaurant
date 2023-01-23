@@ -17,8 +17,8 @@ public class CustomerDataUtil implements UserDataUtil {
 	private Statement statement;
 	private PreparedStatement preparedStatement;
 	private ResultSet resultSet;
-	private String DBUsername = "metaCustomer";
-	private String DBPassword = "metaCustomer";
+	private String DBUsername = "alimamaCustomer";
+	private String DBPassword = "alimamaCustomer";
 	private String sql;
 	
 	public CustomerDataUtil() {
