@@ -29,7 +29,7 @@ public class Signup extends HttpServlet {
 		if (firstName != null && lastName != null && email != null && phone != null) {
 			if (firstName != "" && lastName != "" && email != "" && phone != "")
 				new CustomerDataUtil().createUser(new Customer(
-						firstName, lastName, email, phone,
+						firstName, lastName, phone, email,
 						new PasswordHash().generateStorngPasswordHash(
 								request.getParameter("password"))
 						));

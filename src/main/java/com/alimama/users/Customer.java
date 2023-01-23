@@ -1,11 +1,10 @@
 package com.alimama.users;
 
 public class Customer implements User{
-	
-	private String firstName, lastName, email, phone, hashedPassword;
 	private int id;
+	private String firstName, lastName, email, phone, hashedPassword;
 
-	public Customer(String fistName, String lastName, String email, String phone, String hashedPassword) {
+	public Customer(String fistName, String lastName, String phone, String email, String hashedPassword) {
 		this.firstName = fistName;
 		this.lastName = lastName;
 		this.email = email;
@@ -13,7 +12,7 @@ public class Customer implements User{
 		this.hashedPassword = hashedPassword;
 	}
 
-	public Customer(int id, String fistName, String lastName, String email, String phone,  String hashedPassword) {
+	public Customer(int id, String fistName, String lastName, String phone, String email, String hashedPassword) {
 		this.id = id;
 		this.firstName = fistName;
 		this.lastName = lastName;

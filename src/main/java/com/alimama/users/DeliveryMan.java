@@ -1,34 +1,32 @@
 package com.alimama.users;
 
 public class DeliveryMan implements User {
-	private String firstName, lastName, email, phone, hashedPassword, shift, status;
 	private int id;
-	
-	
-	
-	public DeliveryMan(String firstName, String lastName, String email, String phone, String hashedPassword,
-			String shift, String status, int id) {
+	private String firstName, lastName, phone, email, hashedPassword, shift, status;
+
+	public DeliveryMan(int id, String firstName, String lastName, String phone, String email, String hashedPassword,
+			String shift, String status) {
+		this.id = id;
 		this.firstName = firstName;
 		this.lastName = lastName;
-		this.email = email;
 		this.phone = phone;
+		this.email = email;
 		this.hashedPassword = hashedPassword;
 		this.shift = shift;
 		this.status = status;
-		this.id = id;
 	}
 	
-	public DeliveryMan(String firstName, String lastName, String email, String phone, String hashedPassword,
+	public DeliveryMan(String firstName, String lastName, String phone, String email, String hashedPassword,
 			String shift, String status) {
 		this.firstName = firstName;
 		this.lastName = lastName;
-		this.email = email;
 		this.phone = phone;
+		this.email = email;
 		this.hashedPassword = hashedPassword;
 		this.shift = shift;
 		this.status = status;
 	}
-
+	
 	public DeliveryMan() {
 	}
 

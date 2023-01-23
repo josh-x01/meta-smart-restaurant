@@ -1,32 +1,32 @@
 package com.alimama.users;
 
 public class Waiter {
-	private String firstName, lastName, email, phone, hashedPassword, shift;
 	private int id;
+	private String firstName, lastName, phone, email, hashedPassword, shift;
 	
-	public Waiter(String firstName, String lastName, String email, String phone, String hashedPassword, String shift,
-			int id) {
+	public Waiter(int id, String firstName, String lastName, String phone, String email, String hashedPassword,
+			String shift) {
+		this.id = id;
 		this.firstName = firstName;
 		this.lastName = lastName;
-		this.email = email;
 		this.phone = phone;
+		this.email = email;
 		this.hashedPassword = hashedPassword;
 		this.shift = shift;
-		this.id = id;
 	}
-	
-	public Waiter(String firstName, String lastName, String email, String phone, String hashedPassword, String shift) {
+
+	public Waiter(String firstName, String lastName, String phone, String email, String hashedPassword, String shift) {
 		this.firstName = firstName;
 		this.lastName = lastName;
-		this.email = email;
 		this.phone = phone;
+		this.email = email;
 		this.hashedPassword = hashedPassword;
 		this.shift = shift;
 	}
 	
 	public Waiter() {
 	}
-
+	
 	public String getFirstName() {
 		return firstName;
 	}

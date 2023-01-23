@@ -35,7 +35,7 @@ public class CustomerDataUtil implements UserDataUtil {
 			System.err.println("[ERROR] Failed to register mysql driver!");
 		}
 	}
-
+	// get all users
 	@Override
 	public List<User> getAllUsers() {
 		// create array to store users
@@ -71,7 +71,7 @@ public class CustomerDataUtil implements UserDataUtil {
 		}
 		return users;
 	}
-	
+	// get specific user wit id, phone or email
 	@Override
 	public <T> User getUser(T t) {
 		// SQL statement
@@ -130,11 +130,11 @@ public class CustomerDataUtil implements UserDataUtil {
 		}
 		return null;
 	}
-
+	// create user
 	@Override
 	public void createUser(User user) {
 		// SQL statement
-		sql = "INSERT INTO customer (firstName, lastName, email, phone, hashedPassword)"
+		sql = "INSERT INTO customer (firstName, lastName, phone, email, hashedPassword)"
 				+ "VALUE (?,?,?,?,?)";
 		try {
 			// create prepare statement
@@ -142,8 +142,8 @@ public class CustomerDataUtil implements UserDataUtil {
 			// sent data to prepare statement
 			preparedStatement.setString(1, user.getFirstName());
 			preparedStatement.setString(2, user.getLastName());
-			preparedStatement.setString(3, user.getEmail());
-			preparedStatement.setString(4, user.getPhone());
+			preparedStatement.setString(3, user.getPhone());
+			preparedStatement.setString(4, user.getEmail());
 			preparedStatement.setString(5, user.getHashedPassword());
 			// execute prepare statement
 			preparedStatement.execute();
@@ -162,19 +162,20 @@ public class CustomerDataUtil implements UserDataUtil {
 		}
 	}
 
+	// update user
 	@Override
 	public void updateUser(User user) {
 		// SQL statement
 		sql = "UPDATE customer SET firstName=?, lastName=?, "
-		+"email=?, phone=?, hashedPassword=? WHERE email=?";
+		+"phone=?, email=?, hashedPassword=? WHERE email=?";
 		try {
 			// create prepare statement
 			preparedStatement = connection.prepareStatement(sql);
 			// sent data to prepare statement
 			preparedStatement.setString(1, user.getFirstName());
 			preparedStatement.setString(2, user.getLastName());
-			preparedStatement.setString(3, user.getEmail());
-			preparedStatement.setString(4, user.getPhone());
+			preparedStatement.setString(3, user.getPhone());
+			preparedStatement.setString(4, user.getEmail());
 			preparedStatement.setString(5, user.getHashedPassword());
 			preparedStatement.setString(6, user.getEmail());
 			// execute prepare statement
@@ -195,6 +196,7 @@ public class CustomerDataUtil implements UserDataUtil {
 		
 	}
 
+	// delete user
 	@Override
 	public <T> void deleteUser(T t) {
 		// identify parameter key for SQL statement

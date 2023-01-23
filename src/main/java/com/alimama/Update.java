@@ -18,6 +18,11 @@ public class Update extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private String firstName, lastName, email, phone;
 	private User user;
+	
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		response.sendRedirect("/alimama/dashboard.jsp");
+	}
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		email = request.getParameter("email");
 		if (request.getParameter("command").equals("update")) {
@@ -27,7 +32,7 @@ public class Update extends HttpServlet {
 			// check if either of the field are null or empty
 			if (firstName != null && lastName != null && email != null && phone != null) {
 				if (firstName != "" && lastName != "" && email != "" && phone != "") {
-					user = new Customer(firstName, lastName, email, phone,
+					user = new Customer(firstName, lastName, phone, email,
 							new PasswordHash().generateStorngPasswordHash(
 									request.getParameter("password")
 							));
