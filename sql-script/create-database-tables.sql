@@ -116,6 +116,17 @@ CREATE TABLE `customer`(
     `hashedPassword` VARCHAR(255) NOT NULL
 );
 
+CREATE TABLE `alimamadb`.`board` (
+  `id` INT UNSIGNED NOT NULL,
+  `firstName` VARCHAR(45) NOT NULL,
+  `lastName` VARCHAR(45) NOT NULL,
+  `phone` VARCHAR(45) NOT NULL,
+  `email` VARCHAR(45) NOT NULL,
+  `hashedPassword` VARCHAR(45) NOT NULL,
+  `title` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE);
+
 ALTER TABLE
     `orderDetail` ADD CONSTRAINT `cid` FOREIGN KEY(`cid`) REFERENCES `customer`(`cid`) ON DELETE CASCADE;
 ALTER TABLE

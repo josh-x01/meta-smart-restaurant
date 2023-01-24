@@ -1,38 +1,43 @@
-package com.alimama;
+package com.alimama.credential.employee;
 
+import java.io.IOException;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
-
-import com.alimama.data_util.*;
+import com.alimama.data_util.EmployeeDataUtil;
 import com.alimama.data_util.security.PasswordHash;
-import com.alimama.users.Customer;
 import com.alimama.mail.UserMailing;
+import com.alimama.users.Employee;
+
 /**
- * Servlet implementation class Sign up
+ * Servlet implementation class Apply
  */
-public class Signup extends HttpServlet {
+@WebServlet("/apply")
+public class Apply extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private String firstName, lastName, email, phone;
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-		response.sendRedirect("/alimama/signup.html");
+		response.sendRedirect("/alimama/apply.jsp");
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		System.out.println(request.getParameter("job"));
+		
 		firstName = request.getParameter("firstName");
 		lastName = request.getParameter("lastName");
-		email = request.getParameter("email");
 		phone = request.getParameter("phone");
+		email = request.getParameter("email");
 		// check if either of the field are null or empty
 		if (firstName != null && lastName != null && email != null && phone != null) {
 			if (firstName != "" && lastName != "" && email != "" && phone != "") {
-				new CustomerDataUtil().createUser(new Customer(
-						firstName, lastName, phone, email,
-						new PasswordHash().generateStorngPasswordHash(
-								request.getParameter("password"))
-						));
+				new EmployeeDataUtil(request.getParameter("job")).createUser(
+						new Employee(firstName, lastName, phone, email,
+								new PasswordHash().generateStorngPasswordHash(
+										request.getParameter("password")),
+										"n/a", "n/a"));
+
 				new UserMailing(email, firstName, lastName, phone, "welcome");
 				response.sendRedirect("/alimama/signin.jsp");
 			} else {

@@ -1,4 +1,4 @@
-package com.alimama;
+package com.alimama.credential.customer;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;

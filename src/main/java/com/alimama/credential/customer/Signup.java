@@ -1,48 +1,40 @@
-package com.alimama.EmployeeServlet;
+package com.alimama.credential.customer;
 
-import java.io.IOException;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 
-import com.alimama.data_util.CustomerDataUtil;
-import com.alimama.data_util.EmployeeDataUtil;
+import com.alimama.data_util.*;
 import com.alimama.data_util.security.PasswordHash;
-import com.alimama.mail.UserMailing;
 import com.alimama.users.Customer;
-import com.alimama.users.Employee;
-
+import com.alimama.mail.UserMailing;
 /**
- * Servlet implementation class Apply
+ * Servlet implementation class Sign up
  */
-@WebServlet("/apply")
-public class Apply extends HttpServlet {
+public class Signup extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private String firstName, lastName, email, phone;
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-		response.sendRedirect("/alimama/apply.jsp");
+		response.sendRedirect("/alimama/signup.html");
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		System.out.println(request.getParameter("job"));
-		
 		firstName = request.getParameter("firstName");
 		lastName = request.getParameter("lastName");
-		phone = request.getParameter("phone");
 		email = request.getParameter("email");
+		phone = request.getParameter("phone");
 		// check if either of the field are null or empty
 		if (firstName != null && lastName != null && email != null && phone != null) {
 			if (firstName != "" && lastName != "" && email != "" && phone != "") {
-				new EmployeeDataUtil(request.getParameter("job")).createUser(
-						new Employee(firstName, lastName, phone, email,
-								new PasswordHash().generateStorngPasswordHash(
-										request.getParameter("password")),
-										"n/a", "n/a"));
-
+				new CustomerDataUtil().createUser(new Customer(
+						firstName, lastName, phone, email,
+						new PasswordHash().generateStorngPasswordHash(
+								request.getParameter("password"))
+						));
 				new UserMailing(email, firstName, lastName, phone, "welcome");
-				response.sendRedirect("/alimama/signin.jsp");
+				response.sendRedirect("/alimama/signout.jsp");
 			} else {
 				response.sendRedirect("/alimama/signup.html");
 			}
