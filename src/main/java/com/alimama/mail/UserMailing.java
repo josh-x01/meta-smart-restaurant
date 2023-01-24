@@ -4,7 +4,7 @@ import java.util.Properties;
 import javax.mail.*;
 import javax.mail.internet.*;
 
-public class CustomerMailing {
+public class UserMailing {
 	
 	String to;
 	String firstName;
@@ -12,7 +12,7 @@ public class CustomerMailing {
 	String phone;
 	String type;
 	
-	public CustomerMailing(String to, String firstName, String lastName, String phone, String type) {
+	public UserMailing(String to, String firstName, String lastName, String phone, String type) {
 		super();
 		this.to = to;
 		this.firstName = firstName;

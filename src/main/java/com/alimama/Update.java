@@ -10,7 +10,7 @@ import com.alimama.data_util.CustomerDataUtil;
 import com.alimama.users.Customer;
 import com.alimama.users.User;
 import com.alimama.data_util.security.PasswordHash;
-import com.alimama.mail.CustomerMailing;
+import com.alimama.mail.UserMailing;
 /**
  * Servlet implementation class Update
  */
@@ -37,7 +37,7 @@ public class Update extends HttpServlet {
 									request.getParameter("password")
 							));
 					new CustomerDataUtil().updateUser(user);
-					new CustomerMailing(email, firstName, lastName, phone, "updated");
+					new UserMailing(email, firstName, lastName, phone, "updated");
 					request.setAttribute("user", user);
 					request.setAttribute("password", request.getParameter("password"));
 					request.getRequestDispatcher("/dashboard.jsp")
@@ -46,7 +46,7 @@ public class Update extends HttpServlet {
 			}
 		} else if (request.getParameter("command").equals("delete")){
 			new CustomerDataUtil().deleteUser(email);
-			new CustomerMailing(email, firstName, lastName, phone, "deleted");
+			new UserMailing(email, firstName, lastName, phone, "deleted");
 			response.sendRedirect("/alimama/signout.jsp");
 		}
 	}

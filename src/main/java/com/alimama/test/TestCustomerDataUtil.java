@@ -7,7 +7,7 @@ import com.alimama.users.Customer;
 import com.alimama.users.User;
 
 
-public class TestCustomer {
+public class TestCustomerDataUtil {
 	public static void main(String[] args) {
 		// checking CustomerDataUtil methods
 		User user;
@@ -18,18 +18,18 @@ public class TestCustomer {
 		}
 		
 		System.out.println("\n\nchecking CustomerDataUtil getUser method");
-		System.out.println(new CustomerDataUtil().getUser("naf@gmail.com"));
+		System.out.println(new CustomerDataUtil().getUser("email3"));
 		
 //		System.out.println("\n\nchecking CustomerDataUtil createUser method");
 //		user = new Customer("Nafrom", "Abera", "naf@gmail.com", "+25196587463", "1234567sdfghjk3456789uhgfd");
 //		new CustomerDataUtil().createUser(user);
 		
 		System.out.println("\n\nchecking CustomerDataUtil updateUser method");
-		user = new Customer("Nizasser", "tola", "coka@gmail.com", "+78hhvyt7", "1234567asdasdasdasdasdassdfghjk3456789uhgfd");
+		user = new Customer("Nizasser", "tola",  "+78hhvyt7", "email2","1234567asdasdasdasdasdassdfghjk3456789uhgfd");
 		new CustomerDataUtil().updateUser(user);
 		
 		System.out.println("\n\nchecking CustomerDataUtil deleteUser method");
-		new CustomerDataUtil().deleteUser("coka@gmail.com");
+		new CustomerDataUtil().deleteUser("email3");
 	
 //		Customer customer = new Customer("asd", "asdas", "asda", "asd", "asdasd");
 //		System.out.println(customer.getHashedPassword());

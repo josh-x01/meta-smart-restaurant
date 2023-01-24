@@ -24,7 +24,7 @@ public class Signin extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+
 		// get email from request
 		email = request.getParameter("email");
 		// check if either of the field are null or empty

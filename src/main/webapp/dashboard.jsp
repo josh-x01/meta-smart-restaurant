@@ -10,15 +10,11 @@
 <body>
 <% 
 	User user = null;
-	if (session.getAttribute("userSession") == null) {
-		request.getRequestDispatcher("/signin.jsp")
-		.forward(request, response);
-	} else {
+	if (session.getAttribute("userSession") == null)
+		response.sendRedirect("/alimama/signin.jsp");
+	 else
 		user = (User) session.getAttribute("userSession");
-		if (request.getAttribute("user") != null) {
-			user = (User) request.getAttribute("user");
-		}
-	}
+	if (user != null) {
 %>
     <div>
         <form action="/alimama/update" method="post">
@@ -60,5 +56,6 @@
 		</form>
     </div>
     <a href="/alimama/signout.jsp">Logout</a>
+<%} %>
 </body>
 </html>

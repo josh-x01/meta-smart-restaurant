@@ -4,9 +4,9 @@ CREATE TABLE `reservation`(
     `resid` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `tid` INT UNSIGNED NOT NULL,
     `cid` INT UNSIGNED NOT NULL,
-    `time` DATETIME NOT NULL,
     `oid` INT UNSIGNED NOT NULL,
-    `recid` INT UNSIGNED NOT NULL
+    `recid` INT UNSIGNED NOT NULL,
+	`time` DATETIME NOT NULL
 );
 
 CREATE TABLE `delivery`(
@@ -14,8 +14,8 @@ CREATE TABLE `delivery`(
     `oid` INT UNSIGNED NOT NULL,
     `cid` INT UNSIGNED NOT NULL,
     `dmid` INT UNSIGNED NOT NULL,
-    `time` DATETIME NOT NULL,
-    `address` VARCHAR(45) NOT NULL
+    `address` VARCHAR(45) NOT NULL,
+	`time` DATETIME NOT NULL
 );
 
 CREATE TABLE `orders`(
@@ -29,7 +29,8 @@ CREATE TABLE `orderDetail`(
     `wid` INT UNSIGNED NOT NULL,
     `tid` INT NULL,
     `totalPrice` DOUBLE(8, 2) NOT NULL,
-    `type` VARCHAR(45) NOT NULL
+    `type` VARCHAR(45) NOT NULL,
+    `time` DATETIME NOT NULL
 );
 
 CREATE TABLE `menu`(
@@ -47,7 +48,8 @@ CREATE TABLE `sanitation`(
     `phone` VARCHAR(45) NOT NULL UNIQUE,
     `email` VARCHAR(45) NOT NULL UNIQUE,
     `hashedPassword` VARCHAR(255) NOT NULL UNIQUE,
-    `shift` VARCHAR(20) NOT NULL
+    `shift` VARCHAR(20) NOT NULL,
+	`status` VARCHAR(100) NOT NULL
 );
 
 CREATE TABLE `security`(
@@ -57,7 +59,8 @@ CREATE TABLE `security`(
     `phone` VARCHAR(45) NOT NULL UNIQUE,
     `email` VARCHAR(45) NOT NULL UNIQUE,
     `hashedPassword` VARCHAR(255) NOT NULL UNIQUE,
-    `shift` VARCHAR(20) NOT NULL
+    `shift` VARCHAR(20) NOT NULL,
+	`status` VARCHAR(100) NOT NULL
 );
 
 CREATE TABLE `receptionist`(
@@ -67,7 +70,8 @@ CREATE TABLE `receptionist`(
     `phone` VARCHAR(45) NOT NULL UNIQUE,
     `email` VARCHAR(45) NOT NULL UNIQUE,
     `hashedPassword` VARCHAR(255) NOT NULL UNIQUE,
-    `shift` INT UNSIGNED NOT NULL
+    `shift` VARCHAR(20) NOT NULL,
+	`status` VARCHAR(100) NOT NULL
 );
 
 CREATE TABLE `deliveryman`(
@@ -77,8 +81,8 @@ CREATE TABLE `deliveryman`(
     `phone` VARCHAR(45) NOT NULL UNIQUE,
     `email` VARCHAR(45) NOT NULL UNIQUE,
     `hashedPassword` VARCHAR(255) NOT NULL UNIQUE,
-    `status` VARCHAR(45) NOT NULL,
-    `shift` VARCHAR(20) NOT NULL
+    `shift` VARCHAR(20) NOT NULL,
+	`status` VARCHAR(100) NOT NULL
 );
 
 CREATE TABLE `waiter`(
@@ -88,7 +92,8 @@ CREATE TABLE `waiter`(
     `phone` VARCHAR(45) NOT NULL UNIQUE,
     `email` VARCHAR(45) NOT NULL UNIQUE,
     `hashedPassword` VARCHAR(255) NOT NULL UNIQUE,
-    `shift` VARCHAR(20) NOT NULL
+    `shift` VARCHAR(20) NOT NULL,
+	`status` VARCHAR(100) NOT NULL
 );
 
 CREATE TABLE `chef`(
@@ -98,7 +103,8 @@ CREATE TABLE `chef`(
     `phone` VARCHAR(45) NOT NULL UNIQUE,
     `email` VARCHAR(45) NOT NULL UNIQUE,
     `hashedPassword` VARCHAR(255) NOT NULL UNIQUE,
-    `shift` VARCHAR(20) NOT NULL
+    `shift` VARCHAR(20) NOT NULL,
+	`status` VARCHAR(100) NOT NULL
 );
 
 CREATE TABLE `customer`(

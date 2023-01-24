@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
-<title>Sign Up</title>
+<title>Apply Now</title>
 
 <!-- Font Icon -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"/>
@@ -19,9 +19,9 @@
 			<div class="container">
 				<div class="signup-content">
 					<div class="signup-form">
-						<h2 class="form-title">Sign up</h2>
+						<h3 class="form-title">Apply For Job</h3>
 					
-						<form method="post" action="/alimama/signup" class="register-form"
+						<form method="post" action="/alimama/apply" class="register-form"
 							id="register-form">
 							<div class="form-group">
 								<label for="firstName"><i class="fa-solid fa-user"></i></label> <input
@@ -44,6 +44,17 @@
 								<label for="password"><i class="fa-solid fa-lock"></i></label> <input
 									type="password" name="password" id="pass" placeholder="Password" />
 							</div>
+
+							<select name="job">
+									<option value="none" selected disabled>Job Description</option>
+										<option>Chef</option>
+										<option>DeliveryMan</option>
+										<option>Receptionist</option>
+										<option>Sanitation</option>
+										<option>Security</option>
+										<option>Waiter</option>
+							</select>
+
 							<div class="form-group">
 								<input type="checkbox" name="agree-term" id="agree-term"
 									class="agree-term" /> <label for="agree-term"

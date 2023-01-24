@@ -1,11 +1,11 @@
 package com.alimama.users;
 
-public class Sanitation implements User{
+public class Employee implements User{
 	private int id;
-	private String firstName, lastName, phone, email, hashedPassword, shift;
-	
-	public Sanitation(int id, String firstName, String lastName, String phone, String email, String hashedPassword,
-			String shift) {
+	private String firstName, lastName, phone, email, hashedPassword, shift, status;
+
+	public Employee(int id, String firstName, String lastName, String phone, String email, String hashedPassword,
+			String shift, String status) {
 		this.id = id;
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -13,19 +13,23 @@ public class Sanitation implements User{
 		this.email = email;
 		this.hashedPassword = hashedPassword;
 		this.shift = shift;
+		this.status = status;
 	}
-
-	public Sanitation(String firstName, String lastName, String phone, String email, String hashedPassword, String shift) {
+	
+	public Employee(String firstName, String lastName, String phone, String email, String hashedPassword,
+			String shift, String status) {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.phone = phone;
 		this.email = email;
 		this.hashedPassword = hashedPassword;
 		this.shift = shift;
+		this.status = status;
 	}
 	
-	public Sanitation() {
+	public Employee() {
 	}
+
 	public String getFirstName() {
 		return firstName;
 	}
@@ -63,9 +67,10 @@ public class Sanitation implements User{
 		this.shift = shift;
 	}
 	public String getStatus() {
-		return null;
+		return status;
 	}
 	public void setStatus(String status) {
+		this.status = status;
 	}
 	public int getId() {
 		return id;
@@ -73,4 +78,5 @@ public class Sanitation implements User{
 	public void setId(int id) {
 		this.id = id;
 	}
+	
 }

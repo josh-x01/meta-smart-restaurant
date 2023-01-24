@@ -22,7 +22,6 @@
 		response.sendRedirect("/alimama/signin");
 	} else {
 %>		
-	
 
  <h1>This is your service page</h1>
  

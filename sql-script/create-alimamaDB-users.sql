@@ -1,5 +1,6 @@
 USE alimamadb;
 
+
 CREATE USER IF NOT EXISTS 'alimama'@'localhost' IDENTIFIED BY 'alimama';
 CREATE USER IF NOT EXISTS 'owner'@'localhost' IDENTIFIED BY 'owner';
 CREATE USER IF NOT EXISTS 'alimamaCustomer'@'localhost' IDENTIFIED BY 'alimamaCustomer';
