@@ -1,7 +1,5 @@
 package com.alimama.data_util;
 
-import com.alimama.users.Customer;
-import com.alimama.users.User;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -10,9 +8,9 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import com.alimama.users.Board;
 
-public class CustomerDataUtil implements UserDataUtil {
-
+public class BoardDataUtil {
 	private Connection connection;
 	private Statement statement;
 	private PreparedStatement preparedStatement;
@@ -20,15 +18,15 @@ public class CustomerDataUtil implements UserDataUtil {
 	private String DBUsername = "alimama";
 	private String DBPassword = "alimama";
 	private String sql;
-	private String table = "customer";
+	private String table = "board";
 
-	public CustomerDataUtil() {
+	public BoardDataUtil() {
 		try {
 			System.out.println("Connecting alimama database ...");
 			// register MYSQL JDBC driver
-			Class.forName(DBRegister);
+			Class.forName("com.mysql.jdbc.Driver");
 			// create a connection
-			connection = DriverManager.getConnection(DBHost, DBUsername, DBPassword);
+			connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/alimamadb", DBUsername, DBPassword);
 			System.out.println("[OK] Successfully connected!");
 		} catch (SQLException e) {
 			System.err.println("[ERROR] Failed to connect with the alimama database!");
@@ -37,10 +35,10 @@ public class CustomerDataUtil implements UserDataUtil {
 		}
 	}
 	// get all users
-	@Override
-	public List<User> getAllUsers() {
+
+	public List<Board> getAllUsers() {
 		// create array to store users
-		List<User> users = new ArrayList<>();
+		List<Board> board = new ArrayList<>();
 		// SQL statement
 		sql = "SELECT * FROM " + table;
 		try {
@@ -50,12 +48,13 @@ public class CustomerDataUtil implements UserDataUtil {
 			resultSet = statement.executeQuery(sql);
 			// loop through result and add to users
 			while (resultSet.next()) {
-				users.add(new Customer(
+				board.add(new Board(
 						resultSet.getString(2),
 						resultSet.getString(3),
 						resultSet.getString(4),
 						resultSet.getString(5),
-						resultSet.getString(6)
+						resultSet.getString(6),
+						resultSet.getString(7)
 						));
 			}
 		} catch (SQLException e) {
@@ -70,11 +69,10 @@ public class CustomerDataUtil implements UserDataUtil {
 				System.out.println("[ERROR] Failed to close connections!");
 			}
 		}
-		return users;
+		return board;
 	}
 	// get specific user wit id, phone or email
-	@Override
-	public <T> User getUser(T t) {
+	public <T> Board getUser(T t) {
 		// SQL statement
 		sql = "SELECT * FROM " + table + " WHERE email=?";
 		
@@ -108,12 +106,13 @@ public class CustomerDataUtil implements UserDataUtil {
 			resultSet = preparedStatement.executeQuery();
 			// create User object from the data
 			if (resultSet.next()) {
-				return new Customer(
+				return new Board(
 						resultSet.getString(2),
 						resultSet.getString(3),
 						resultSet.getString(4),
 						resultSet.getString(5),
-						resultSet.getString(6)
+						resultSet.getString(6),
+						resultSet.getString(7)
 						);
 			}
 
@@ -132,11 +131,10 @@ public class CustomerDataUtil implements UserDataUtil {
 		return null;
 	}
 	// create user
-	@Override
-	public void createUser(User user) {
+	public void createUser(Board user) {
 		// SQL statement
-		sql = "INSERT INTO " + table + " (firstName, lastName, phone, email, hashedPassword)"
-				+ "VALUE (?,?,?,?,?)";
+		sql = "INSERT INTO " + table + " (firstName, lastName, phone, email, hashedPassword, title)"
+				+ "VALUE (?,?,?,?,?,?)";
 		try {
 			// create prepare statement
 			preparedStatement = connection.prepareStatement(sql);
@@ -146,6 +144,7 @@ public class CustomerDataUtil implements UserDataUtil {
 			preparedStatement.setString(3, user.getPhone());
 			preparedStatement.setString(4, user.getEmail());
 			preparedStatement.setString(5, user.getHashedPassword());
+			preparedStatement.setString(6, user.getTitle());
 			// execute prepare statement
 			preparedStatement.execute();
 			System.out.println("[OK] " + user.getFirstName() + " creates account successfully!");
@@ -164,11 +163,10 @@ public class CustomerDataUtil implements UserDataUtil {
 	}
 
 	// update user
-	@Override
-	public void updateUser(User user) {
+	public void updateUser(Board user) {
 		// SQL statement
 		sql = "UPDATE " + table + " SET firstName=?, lastName=?, "
-		+"phone=?, email=?, hashedPassword=? WHERE email=?";
+		+"phone=?, email=?, hashedPassword=?, title=? WHERE email=?";
 		try {
 			// create prepare statement
 			preparedStatement = connection.prepareStatement(sql);
@@ -178,7 +176,8 @@ public class CustomerDataUtil implements UserDataUtil {
 			preparedStatement.setString(3, user.getPhone());
 			preparedStatement.setString(4, user.getEmail());
 			preparedStatement.setString(5, user.getHashedPassword());
-			preparedStatement.setString(6, user.getEmail());
+			preparedStatement.setString(6, user.getTitle());
+			preparedStatement.setString(7, user.getEmail());
 			// execute prepare statement
 			preparedStatement.execute();
 			System.out.println("[OK] " + user.getFirstName() + " update account successfully!");
@@ -198,7 +197,6 @@ public class CustomerDataUtil implements UserDataUtil {
 	}
 
 	// delete user
-	@Override
 	public <T> void deleteUser(T t) {
 		// identify parameter key for SQL statement
         if (t instanceof Integer) {

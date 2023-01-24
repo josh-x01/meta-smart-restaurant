@@ -16,7 +16,7 @@
 <%
 	User user = (User) session.getAttribute("userSession");
 	if (user != null) {
-		response.sendRedirect("/alimama/services.jsp");
+		response.sendRedirect("/alimama/board/admin-page.jsp");
 	}
 %>
 
@@ -36,7 +36,8 @@
 					</div>
 					<div class="signin-foworm">
 						<h2 class="form-title">Admin</h2>
-						<form method="post" action="/alimama/signin" class="register-form" id="login-form">
+						<form method="post" action="/alimama/admin" class="register-form" id="login-form">
+							<input type="hidden" name="admin-manager" value="signin">
 							<div class="form-group">
 								<label for="email"><i class="fa-solid fa-envelope"></i></label> <input type="text" name="email" id="email" placeholder="Email">
 							</div>
@@ -51,8 +52,6 @@
 				</div>
 			</div>
 		</section>
-
 	</div>
-
 </body>
 </html>

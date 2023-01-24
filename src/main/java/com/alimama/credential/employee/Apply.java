@@ -21,10 +21,7 @@ public class Apply extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 		response.sendRedirect("/alimama/apply.jsp");
 	}
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		System.out.println(request.getParameter("job"));
-		
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {	
 		firstName = request.getParameter("firstName");
 		lastName = request.getParameter("lastName");
 		phone = request.getParameter("phone");

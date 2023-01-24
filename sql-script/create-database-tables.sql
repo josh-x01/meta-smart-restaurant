@@ -111,19 +111,19 @@ CREATE TABLE `customer`(
     `cid` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `firstName` VARCHAR(45) NOT NULL,
     `lastName` VARCHAR(45) NOT NULL,
-    `phone` VARCHAR(45) NULL DEFAULT '15',
+    `phone` VARCHAR(45) NOT NULL UNIQUE,
     `email` VARCHAR(45) NOT NULL UNIQUE,
-    `hashedPassword` VARCHAR(255) NOT NULL
+    `hashedPassword` VARCHAR(255) NOT NULL UNIQUE
 );
 
 CREATE TABLE `alimamadb`.`board` (
-  `id` INT UNSIGNED NOT NULL,
+  `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
   `firstName` VARCHAR(45) NOT NULL,
   `lastName` VARCHAR(45) NOT NULL,
-  `phone` VARCHAR(45) NOT NULL,
-  `email` VARCHAR(45) NOT NULL,
-  `hashedPassword` VARCHAR(45) NOT NULL,
-  `title` VARCHAR(45) NOT NULL,
+  `phone` VARCHAR(45) NOT NULL UNIQUE,
+  `email` VARCHAR(45) NOT NULL UNIQUE,
+  `hashedPassword` VARCHAR(255) NOT NULL UNIQUE,
+  `title` VARCHAR(45) NOT NULL UNIQUE,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE);
 
