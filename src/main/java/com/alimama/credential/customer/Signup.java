@@ -17,7 +17,7 @@ public class Signup extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private String firstName, lastName, email, phone;
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-		response.sendRedirect("/alimama/signup.html");
+		response.sendRedirect("/alimama/signup.jsp");
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
@@ -34,12 +34,12 @@ public class Signup extends HttpServlet {
 								request.getParameter("password"))
 						));
 				new UserMailing(email, firstName, lastName, phone, "welcome");
-				response.sendRedirect("/alimama/signout.jsp");
+				response.sendRedirect("/alimama/signin.jsp");
 			} else {
-				response.sendRedirect("/alimama/signup.html");
+				response.sendRedirect("/alimama/signup.jsp");
 			}
 		} else {
-			response.sendRedirect("/alimama/signup.html");
+			response.sendRedirect("/alimama/signup.jsp");
 		}
 	}
 }

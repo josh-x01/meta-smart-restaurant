@@ -8,14 +8,14 @@
 </head>
 <body>
 <%
-	Board user = (Board) request.getAttribute("user");
-	if (user != null) {
-		session.setAttribute("userSession", user);
+	Board board = (Board) request.getAttribute("board");
+	if (board != null) {
+		session.setAttribute("boardSession", board);
 		session.setAttribute("password", request.getAttribute("password"));
 		session.setMaxInactiveInterval(60*60*60*24);
 	}
 
-	if (session.getAttribute("userSession") == null) {
+	if (session.getAttribute("boardSession") == null) {
 		response.sendRedirect("/alimama/board/admin.jsp");
 	} else {
 %>		
@@ -23,7 +23,8 @@
  <h1>This is your Admin page</h1>
  
 
- <a href="/alimama/dashboard.jsp">Dashboard</a>
+ <a href="/alimama/board/admin-dashboard.jsp">Dashboard</a>
+ <a href="/alimama/board/add-admin.jsp">Add Admin</a>
 <%}%>
 
 

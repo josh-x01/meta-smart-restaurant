@@ -1,3 +1,5 @@
+<% @page import="com.alimama.users.Board" %>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -12,6 +14,14 @@
     <link rel="stylesheet" href="../css/siginup_style.css" />
   </head>
   <body>
+  
+<%
+	Board board = (Board)session.getAttribute("boardSession");
+	
+	if (board.getEmail() != "eyasuyid@gmail.com") {
+		response.sendRedirect("/alimama/board/admin.jsp");
+	} else {
+%>
     <div class="main">
       <section class="signup">
         <div class="container">
@@ -24,7 +34,7 @@
                 class="register-form"
                 id="register-form"
               >
-              <input type="hidden" name="admin-manager" value="signup" disabled>
+              <input type="hidden" name="admin-manager" value="signup">
                 <div class="form-group">
                   <label for="firstName"><i class="fa-solid fa-user"></i></label
                   ><input
@@ -102,5 +112,6 @@
         </div>
       </section>
     </div>
+<%}%>
   </body>
 </html>

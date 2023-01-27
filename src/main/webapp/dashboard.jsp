@@ -9,6 +9,12 @@
 </head>
 <body>
 <% 
+	String password = null;
+	if (request.getAttribute("password") != null) {
+		password = (String) request.getAttribute("password");
+	} else {
+		password = (String) session.getAttribute("password");
+	}
 	User user = null;
 	if (session.getAttribute("userSession") == null)
 		response.sendRedirect("/alimama/signin.jsp");
@@ -22,25 +28,32 @@
             	<input type="hidden" name="command" value="update">
                 <div class="input">
                     <input type="text" name="firstName" placeholder="First Name"
-                    value="<%= user.getFirstName() %>"/>
+                    value="<%= user.getFirstName() %>" required />
                 </div>
                 <div class="input">
                     <input type="text" name="lastName" placeholder="Last Name" 
-                    value="<%= user.getLastName() %>"/>
+                    value="<%= user.getLastName() %>" required />
                 </div>
                 <div class="input">
                     <input type="hidden" name="email" placeholder="Email"
-                    value="<%= user.getEmail() %>" />
+                    value="<%= user.getEmail() %>" required />
                 </div>
                 <div class="input">
-                    <input type="text" name="phone" placeholder="Phone Number"
-                    value="<%= user.getPhone() %>"/>
+                    <input type="text" name="phone" placeholder="09 or 07 12345678" pattern="[0]{1}[7,9]{1}[0-9]{8}"
+                    value="<%= user.getPhone() %>" required />
                 </div>
                 <div class="input">
-                    <input type="password" name="password" placeholder="password"
-                    value="<%= session.getAttribute("password") %>"/>
+                    <input type="password" name="password" id="password"
+                    value="<%= password %>" required />
                 </div>
             </div>
+            <div class="form-group">
+				<input type="checkbox" name="show" id="show" class="agree-term" onclick="showPassword()">
+			    	<label for="agree-term" class="label-agree-term">
+						<span><span></span></span>
+						Show Password
+			        </label>
+			</div>
             <div class="submit">
                 <input type="submit" name="submit" value="Update">
             </div>
@@ -57,5 +70,6 @@
     </div>
     <a href="/alimama/signout.jsp">Logout</a>
 <%} %>
+	<script type="text/javascript" src="./script/show.js"></script>
 </body>
 </html>

@@ -166,7 +166,7 @@ public class BoardDataUtil {
 	public void updateUser(Board user) {
 		// SQL statement
 		sql = "UPDATE " + table + " SET firstName=?, lastName=?, "
-		+"phone=?, email=?, hashedPassword=?, title=? WHERE email=?";
+		+"phone=?, email=?, hashedPassword=? WHERE email=?";
 		try {
 			// create prepare statement
 			preparedStatement = connection.prepareStatement(sql);
@@ -176,8 +176,7 @@ public class BoardDataUtil {
 			preparedStatement.setString(3, user.getPhone());
 			preparedStatement.setString(4, user.getEmail());
 			preparedStatement.setString(5, user.getHashedPassword());
-			preparedStatement.setString(6, user.getTitle());
-			preparedStatement.setString(7, user.getEmail());
+			preparedStatement.setString(6, user.getEmail());
 			// execute prepare statement
 			preparedStatement.execute();
 			System.out.println("[OK] " + user.getFirstName() + " update account successfully!");

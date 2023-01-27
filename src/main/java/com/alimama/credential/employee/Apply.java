@@ -19,7 +19,7 @@ public class Apply extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private String firstName, lastName, email, phone;
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-		response.sendRedirect("/alimama/apply.jsp");
+		response.sendRedirect("/alimama/employee/apply.jsp");
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {	
 		firstName = request.getParameter("firstName");

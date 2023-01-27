@@ -4,6 +4,14 @@ public class Board implements User{
 	private int id;
 	private String firstName, lastName, email, phone, hashedPassword, title;
 
+	public Board(String fistName, String lastName, String phone, String email, String hashedPassword) {
+		this.firstName = fistName;
+		this.lastName = lastName;
+		this.email = email;
+		this.phone = phone;
+		this.hashedPassword = hashedPassword;
+	}
+	
 	public Board(String fistName, String lastName, String phone, String email, String hashedPassword, String title) {
 		this.firstName = fistName;
 		this.lastName = lastName;

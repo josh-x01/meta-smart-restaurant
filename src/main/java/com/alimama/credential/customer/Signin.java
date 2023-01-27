@@ -4,6 +4,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import com.alimama.users.User;
 import com.alimama.data_util.security.PasswordHash;
@@ -18,13 +19,14 @@ public class Signin extends HttpServlet {
 	private String email;
 	private User user;
 	private boolean isValidPassword;
+
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 		response.sendRedirect("/alimama/signin.jsp");
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+		HttpSession session = request.getSession();
 		// get email from request
 		email = request.getParameter("email");
 		// check if either of the field are null or empty
@@ -38,19 +40,28 @@ public class Signin extends HttpServlet {
 						request.getParameter("password"),
 						user.getHashedPassword());
 				if (isValidPassword) {
+					if (request.getParameter("remember-me") != null) {
+						session.setAttribute("userSession", user);
+						session.setMaxInactiveInterval(60*60*60*24*365);
+					} else {
+						session.setAttribute("userSession", user);
+						session.setMaxInactiveInterval(60*60*60);
+					}
 					// send request and forward to services
 					request.setAttribute("password", request.getParameter("password"));
-					request.setAttribute("user", user);
 					request.getRequestDispatcher("/services.jsp")
 							.forward(request, response);
 				} else {
-					response.sendRedirect("/alimama/signin.jsp");
+					request.setAttribute("error", "Incorrect Password!");
+					request.getRequestDispatcher("/signin.jsp").forward(request, response);
 				}
 			} else {
-				response.sendRedirect("/alimama/signin.jsp");
+				request.setAttribute("error", "User not found!");
+				request.getRequestDispatcher("/signin.jsp").forward(request, response);
 			}
 		} else {
-			response.sendRedirect("/alimama/signin.jsp");
+			request.setAttribute("error", "Fill all input!");
+			request.getRequestDispatcher("/signin.jsp").forward(request, response);
 		}
 
 	}

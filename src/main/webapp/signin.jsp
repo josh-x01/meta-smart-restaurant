@@ -31,7 +31,7 @@
 						<figure>
 							<img src="./materials/images/signin-image.jpg" alt="sing up image" width="500">
 						</figure>
-						<a href="/alimama/signup.html" class="signup-image-link">Create an
+						<a href="/alimama/signup.jsp" class="signup-image-link">Create an
 							account</a>
 					</div>
 
@@ -40,12 +40,26 @@
 
 						<h2 class="form-title">Sign in</h2>
 						<form method="post" action="/alimama/signin" class="register-form" id="login-form">
-							<div class="form-group">
-								<label for="email"><i class="fa-solid fa-envelope"></i></label> <input type="text" name="email" id="email" placeholder="Email">
+							
+							<div class="form-group" style="color: red">
+								<%
+									if (request.getAttribute("error") != null)
+										out.print(request.getAttribute("error")); 
+								%>
 							</div>
 							<div class="form-group">
-								<label for="password"><i class="fa-solid fa-lock"></i></label> <input type="password" name="password" id="password" placeholder="Password">
+								<label for="email"><i class="fa-solid fa-envelope"></i></label> <input type="email" name="email" id="email" placeholder="Email" required>
 							</div>
+							<div class="form-group">
+								<label for="password"><i class="fa-solid fa-lock"></i></label> <input type="password" name="password" id="password" placeholder="Password" required>
+							</div>
+			                <div class="form-group">
+			                  <input type="checkbox" name="show" id="show" class="agree-term" onclick="showPassword()">
+			                  <label for="agree-term" class="label-agree-term">
+									<span><span></span></span>
+									Show Password
+			                  </label>
+			                </div>
 							<div class="form-group">
 								<input type="checkbox" name="remember-me" id="remember-me" class="agree-term"> <label for="remember-me" class="label-agree-term"><span><span></span></span>Remember
 									me</label>
@@ -68,6 +82,7 @@
 		</section>
 
 	</div>
-
+	<script type="text/javascript" src="./script/show.js"></script>
 </body>
+
 </html>
