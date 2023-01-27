@@ -47,13 +47,6 @@
                   </label>
                   <input type="password" name="password" id="password" placeholder="Password" required>
                 </div>
-                <div class="form-group">
-			    	<input type="checkbox" name="show" id="show" class="agree-term" onclick="showPassword()">
-			        	<label for="agree-term" class="label-agree-term">
-							<span><span></span></span>
-							Show Password
-			                </label>
-				</div>
                 <select name="job" required>
                   <option value="none" selected="selected" disabled="disabled">Job Description</option>
                   <option>Chef</option>
@@ -63,6 +56,13 @@
                   <option>Security</option>
                   <option>Waiter</option>
                 </select>
+
+				    <div class="form-group">
+				    <p>Tell us about yourself</p>
+					<textarea rows="15" cols="28"></textarea>
+				</div>
+                
+                
                 <div class="form-group">
                   <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" required>
                   <label for="agree-term" class="label-agree-term">

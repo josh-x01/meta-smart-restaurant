@@ -10,9 +10,14 @@
 <body>
 <%
 	Board board = null;
+	String password = (String) session.getAttribute("password");
 	if (session.getAttribute("boardSession") == null)
 		response.sendRedirect("/alimama/board/admin.jsp");
 	 else {
+		 if (request.getAttribute("password") != null) {
+			 password = (String) request.getAttribute("password");
+		 }
+
 		 board = (Board) session.getAttribute("boardSession");
 		 if (request.getAttribute("board") != null)
 			 board = (Board) request.getAttribute("board");
@@ -36,12 +41,12 @@
                     value="<%= board.getEmail() %>" />
                 </div>
                 <div class="input">
-                    <input type="text" name="phone" placeholder="Phone Number"
+                    <input type="text" name="phone" placeholder="09 or 07 12345678" pattern="[0]{1}[7,9]{1}[0-9]{8}"
                     value="<%= board.getPhone() %>" required />
                 </div>
                 <div class="input">
                     <input type="password" id="password" name="password" placeholder="password"
-                    value="<%= session.getAttribute("password") %>"required />
+                    value="<%= password %>"required />
                 </div>
             </div>
             <div class="form-group">

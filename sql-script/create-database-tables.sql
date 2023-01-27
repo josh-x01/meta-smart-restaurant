@@ -6,7 +6,7 @@ CREATE TABLE `reservation`(
     `cid` INT UNSIGNED NOT NULL,
     `oid` INT UNSIGNED NOT NULL,
     `recid` INT UNSIGNED NOT NULL,
-	`time` DATETIME NOT NULL
+	`time` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TABLE `delivery`(
@@ -15,7 +15,7 @@ CREATE TABLE `delivery`(
     `cid` INT UNSIGNED NOT NULL,
     `dmid` INT UNSIGNED NOT NULL,
     `address` VARCHAR(45) NOT NULL,
-	`time` DATETIME NOT NULL
+	`time` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TABLE `orders`(
@@ -30,7 +30,7 @@ CREATE TABLE `orderDetail`(
     `tid` INT NULL,
     `totalPrice` DOUBLE(8, 2) NOT NULL,
     `type` VARCHAR(45) NOT NULL,
-    `time` DATETIME NOT NULL
+    `time` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TABLE `menu`(
