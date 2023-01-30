@@ -1,0 +1,64 @@
+body{
+	margin : 0;
+	padding : 0;
+	background : url(../materials/images/terms.jpg);
+    min-height: 100vh;
+    display: flex;	
+    align-items: center;
+    justify-content: center;
+}
+.terms-box{
+    max-width: 460px;
+    backface-visibility: visible;
+    color: #fff;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    padding: 60px 30px;
+
+}
+.terms-text{
+    padding: 0 20px;
+    height: 400px;
+    overflow-y: auto;
+    color:black;
+    text-shadow: #6b0909;
+}
+.terms-box h4{
+    font-size: 15px;
+    padding: 0 40px;
+    color: black;
+}
+.terms-box h4 span{
+    color: #ba0d0d;
+}
+.buttons{
+    display: flex;
+    padding: 0 40px;
+    justify-content:space-between;
+
+}
+.terms-text::-webkit-scrollbar{
+    width: 6px;
+    background-color: #282828;
+}
+.terms-text::-webkit-scrollbar-thumb{
+    background-color: #6b0909;
+}
+.btn{
+    height: 30px;
+    width:calc(40%);
+    border: 0;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 300px;
+    color: #fff;
+    transition: .2s linear;
+}
+.red-btn{
+    background-color: #d13633;
+}
+.gray-btn{
+    background-color: #282828;
+}
+.btn:hover{
+    opacity: .6;
+}

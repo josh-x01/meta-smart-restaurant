@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Terms of Service</title>
+    <link rel="stylesheet" href="./css/terms.css">
+</head>
+<body>
+   <div class="terms-box">
+       <div class="terms-text">
+           <h2>Terms of Service</h2>
+           <h6>Last Edited 29/1/2023</h6>
+           <p>Greetings Users</p>
+           <p>OVERVIEW</p>
+           <p>This website is operated by Alimama. Throughout the site, the terms “we”, “us”, “our” and “Alimama” refer to Alimama. Alimama offers this website, including all information, tools and services available from this site to you, the user, conditioned upon your acceptance of all terms, conditions, policies and notices stated here.</p>
+        </p>
+        <p>SECTION 1 – WEBSITE TERMS</p>
+        <p>By agreeing to these Terms of Service, you represent that you are at least the age of majority in your state or province of residence, or that you are the age of majority in your state or province of residence and you have given us your consent to allow any of your minor dependents to use this site.
+          You may not use our products for any illegal or unauthorized purpose nor may you, in the use of the Service, violate any laws in your jurisdiction (including but not limited to copyright laws).
+          A breach or violation of any of the Terms will result in an immediate termination of your Services.
+        </p>
+    
+        <p>SECTION 2 – GENERAL CONDITIONS</p>
+        <p>We reserve the right to refuse service to anyone for any reason at any time.
+            You understand that your content (not including credit card information), may be transferred unencrypted and involve (a) transmissions over various networks; and (b) changes to conform and adapt to technical requirements of connecting networks or devices. Credit card information is always encrypted during transfer over networks.
+            You agree not to reproduce, duplicate, copy, sell, resell or exploit any portion of the Service, use of the Service, or access to the Service or any contact on the website through which the service is provided, without express written permission by us.
+            The headings used in this agreement are included for convenience only and will not limit or otherwise affect these Terms.</p>
+        <p>SECTION 3 – MODIFICATIONS TO THE SERVICE AND PRICES</p>
+        <p>Prices for our products are subject to change without notice.
+            We reserve the right at any time to modify or discontinue the Service (or any part or content thereof) with 30 days notice given at any time.
+            We shall not be liable to you or to any third-party for any modification, price change, suspension or discontinuance of the Service</p>
+           </div>
+       <h4>I Agree to the <span>Terms and service </span>and i read the privacy Notice.</h4>
+       <div class="buttons">
+        
+        <button class="btn red-btn">Accept</button>
+       
+        <button class="btn gray-btn">Decline</button>
+       </div>
+   </div>
+
+</body>
+</html>
