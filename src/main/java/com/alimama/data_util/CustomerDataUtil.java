@@ -21,17 +21,17 @@ public class CustomerDataUtil implements UserDataUtil {
 	private String DBPassword = "alimama";
 	private String sql;
 	private String table = "customer";
-
+	
 	public CustomerDataUtil() {
 		try {
-			System.out.println("Connecting alimama database ...");
+			System.out.println("Connecting meta database ...");
 			// register MYSQL JDBC driver
 			Class.forName(DBRegister);
 			// create a connection
 			connection = DriverManager.getConnection(DBHost, DBUsername, DBPassword);
 			System.out.println("[OK] Successfully connected!");
 		} catch (SQLException e) {
-			System.err.println("[ERROR] Failed to connect with the alimama database!");
+			System.err.println("[ERROR] Failed to connect with the meta database!");
 		} catch (Exception e) {
 			System.err.println("[ERROR] Failed to register mysql driver!");
 		}
@@ -241,4 +241,5 @@ public class CustomerDataUtil implements UserDataUtil {
 			}
 		}
 	}
+
 }

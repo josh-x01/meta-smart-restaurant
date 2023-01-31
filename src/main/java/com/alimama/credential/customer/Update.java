@@ -5,7 +5,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import javax.servlet.http.HttpSession;
+
 import com.alimama.data_util.CustomerDataUtil;
 import com.alimama.users.Customer;
 import com.alimama.users.User;
@@ -24,7 +24,6 @@ public class Update extends HttpServlet {
 	}
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		HttpSession session = request.getSession();
 		email = request.getParameter("email");
 		if (request.getParameter("command").equals("update")) {
 			firstName = request.getParameter("firstName");
@@ -39,7 +38,7 @@ public class Update extends HttpServlet {
 							));
 					new CustomerDataUtil().updateUser(user);
 					new UserMailing(email, firstName, lastName, phone, "updated");
-					session.setAttribute("userSession", user);
+					request.setAttribute("user", user);
 					request.setAttribute("password", request.getParameter("password"));
 					request.getRequestDispatcher("/dashboard.jsp")
 						.forward(request, response);

@@ -19,9 +19,12 @@ public class Apply extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private String firstName, lastName, email, phone;
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-		response.sendRedirect("/alimama/employee/apply.jsp");
+		response.sendRedirect("/alimama/apply.jsp");
 	}
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		System.out.println(request.getParameter("job"));
+		
 		firstName = request.getParameter("firstName");
 		lastName = request.getParameter("lastName");
 		phone = request.getParameter("phone");
