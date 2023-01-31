@@ -1,4 +1,4 @@
-<% @page import="com.alimama.users.Board" %>
+<%@page import="com.alimama.users.Board" %>
 
 <!DOCTYPE html>
 <html lang="en">

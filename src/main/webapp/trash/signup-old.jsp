@@ -10,10 +10,10 @@
   </head>
   <body>
   <%
-	User user = (User) session.getAttribute("userSession");
-	if (user != null) {
-		response.sendRedirect("/alimama/services.jsp");
-	}
+	//User user = (User) session.getAttribute("userSession");
+	//if (user != null) {
+		//response.sendRedirect("/alimama/services.jsp");
+	//}
 %>
     <div class="main">
       <section class="signup">
