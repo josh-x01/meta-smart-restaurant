@@ -1,0 +1,72 @@
+html, body, div, input, select {
+    margin: 0px;
+    padding: 0px;
+    outline: none;
+    border: none;
+}
+
+body {
+    background-image: url("../materials/images/reservation-background.jpg");
+}
+
+.header {
+    margin-top: 5%;
+    text-align: center;
+}
+
+.header h1 {
+    color: #ECECEC;
+    font-size: 100px;
+}
+
+.container {
+    width: 50%;
+}
+
+.center {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.atr {
+    padding-bottom: 10px;
+}
+
+.atr input, .atr select {
+    height: 50px;
+    background-color: #20262E;
+    color: #ECF9FF;
+    outline: none;
+    border: none;
+    width: 40%;
+    height: 30%;
+    box-shadow: 5px 2px 5px #aaaaaa;
+    border-radius: 15px;
+    font-size: 40px;
+    padding: 10px;
+}
+
+option {
+    font-size: 20px;
+}
+
+button {
+    border: none;
+    color: white;
+    padding: 10px 20px 10px 20px;
+    font-size: large;
+    border-radius: 5px;
+}
+
+.button-success {
+    background-color: green;
+}
+
+.button-cancel {
+    background-color: red;
+}
