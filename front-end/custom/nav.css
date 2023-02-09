@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    top: 0;
+    width: 100vw;
+    background-color: #F0EEED;
+    padding-top: 10px;
+    padding-bottom: 5px;
+}
+
+.nav .nav-buttons .nav-button {
+    display: inline-block;
+}
+
+.nav-button .nav-tabs {
+    font-size: medium;
+    padding: 0 10px 0 10px;
+    background-color: #F0EEED;
+    padding-bottom: 5px;
+    border: none;
+    border-bottom: solid #F0EEED;
+}
+
+.nav-button .nav-tabs:hover {
+    border-bottom: solid #86A3B8;
+}
+
+.user-dashboard {
+    padding-right: 1em;
+}
+
+.user-dashboard svg {
+    height: 20px;
+}
+
+.hidden-dashboard {
+    display: none;
+    background-color: #F0EEED;
+    border: solid 5px #F0EEED;
+    border-radius: 20px;
+    box-shadow: 5px 2px 5px 2px #aaaaaa;
+    position: absolute;
+    right: 10px;
+    width: 150px;
+}
+
+.hidden-dashboard:hover {
+    display: block;
+}
+
+.user-dashboard:hover + .hidden-dashboard {
+    display: block;
+}
+
+.hidden-dashboard ul {
+    display: block;
+    text-align: center;
+}
+
+.hidden-dashboard li {
+    display: block;
+}
+
+.hidden-dashboard button {
+    background-color: #F0EEED;
+    border: none;
+    font-size: medium;
+    padding-bottom: 5px;
+}
+
+.hidden-dashboard button:hover {
+    color: rgb(68, 63, 63);
+}
+
+@media only screen and (max-width: 720px) {
+    .nav .logo {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .nav {
+        justify-content: space-between;
+    }
+    .nav li {
+        display: block;
+    }
+}
+
+@media only screen and (max-width: 412px) {
+    .nav .nav-buttons {
+        display: none;
+    }
+}

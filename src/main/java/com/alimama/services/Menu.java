@@ -4,23 +4,23 @@ public class Menu {
 	int menuId;
 	String name, category;
 	float price;
-	String description;
+	String image;
 
-	public Menu(int menuId, String name, String category, float price, String description) {
+	public Menu(int menuId, String name, String category, float price, String image) {
 		super();
 		this.menuId = menuId;
 		this.name = name;
 		this.category = category;
 		this.price = price;
-		this.description = description;
+		this.image = image;
 	}
 
-	public Menu(String name, String category, float price, String description) {
+	public Menu(String name, String category, float price, String image) {
 		super();
 		this.name = name;
 		this.category = category;
 		this.price = price;
-		this.description = description;
+		this.image = image;
 	}
 
 	public int getMenuId() {
@@ -55,11 +55,11 @@ public class Menu {
 		this.price = price;
 	}
 
-	public String getDescription() {
-		return description;
+	public String getImage() {
+		return image;
 	}
 
-	public void setDescription(String description) {
-		this.description = description;
+	public void setImage(String image) {
+		this.image = image;
 	}
 }

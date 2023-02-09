@@ -68,8 +68,14 @@ public class Admin extends HttpServlet {
 						// send request and forward to services
 						request.setAttribute("password", request.getParameter("password"));
 						request.setAttribute("board", board);
-						request.getRequestDispatcher("/board/admin-page.jsp")
-								.forward(request, response);
+						if (board.getTitle().equals("Manager")) {
+							request.getRequestDispatcher("/board/manager.jsp")
+							.forward(request, response);
+						} else {
+							request.getRequestDispatcher("/board/admin-page.jsp")
+							.forward(request, response);
+						}
+
 					} else {
 						session.setAttribute("error", "Incorrect Password!");
 						response.sendRedirect("/alimama/board/admin.jsp");

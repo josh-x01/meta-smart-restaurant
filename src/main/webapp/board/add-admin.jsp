@@ -14,15 +14,7 @@
     <link rel="stylesheet" href="../css/siginup_style.css" />
   </head>
   <body>
-  
-<%
-	Board board = (Board)session.getAttribute("boardSession");
-	
-	if (board != null) {
-		if (!(board.getEmail().equals("eyasuyid@gmail.com"))) {
-			response.sendRedirect("/alimama/board/admin.jsp");
-		}  else {
-%>
+
     <div class="main">
       <section class="signup">
         <div class="container">
@@ -120,10 +112,7 @@
         </div>
       </section>
     </div>
-<%}
-		} else {
-			response.sendRedirect("/alimama/board/admin.jsp");
-		}%>
+
 		
 			<script type="text/javascript" src="../script/show.js"></script>
   </body>

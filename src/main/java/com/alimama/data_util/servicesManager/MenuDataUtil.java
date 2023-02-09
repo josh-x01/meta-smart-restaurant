@@ -1,15 +1,20 @@
 package com.alimama.data_util.servicesManager;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.alimama.services.Menu;
 
 public class MenuDataUtil extends ServicesDataManager{
 	String table = "menu";
+	List<Menu> menuLists = new ArrayList<>();
+
 	public boolean addMenu(Menu menu) {
 		// add try catch block		
 		try {
 			// create SQL statement
 			sql = "INSERT INTO " + table
-					+ " (name, category, price, description) "
+					+ " (name, category, price, image) "
 					+ "value(?,?,?,?)";
 			// pass the SQL statement to prepared statement
 			preparedStatement = connection.prepareStatement(sql);
@@ -17,7 +22,7 @@ public class MenuDataUtil extends ServicesDataManager{
 			preparedStatement.setString(1, menu.getName());
 			preparedStatement.setString(2, menu.getCategory());
 			preparedStatement.setFloat(3, menu.getPrice());
-			preparedStatement.setString(4, menu.getDescription());
+			preparedStatement.setString(4, menu.getImage());
 			// execute query
 			preparedStatement.execute();
 			// Confirmation message
@@ -28,6 +33,32 @@ public class MenuDataUtil extends ServicesDataManager{
 			e.printStackTrace();
 		}
 		return false;
+	}
+	
+	public List<Menu> getMenu() {
+		try {
+			sql = "SELECT * FROM " + table;
+			
+			resultSet = statement.executeQuery(sql);
+			
+			while(resultSet.next()) {
+
+				 menuLists.add(new Menu(
+						 resultSet.getInt(1),
+						 resultSet.getString(2),
+						 resultSet.getString(3),
+						 resultSet.getFloat(4),
+						 resultSet.getString(5)
+						 ));
+			}
+			
+			return menuLists;
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return null;
 	}
 	
 	public boolean removeMenu(int id) {

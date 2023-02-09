@@ -16,10 +16,14 @@
 	} else {
 		session.setAttribute("password", request.getAttribute("password"));
 %>		
-
+<jsp:include page="nav.html" />
+<br/><br/><br/>
  <h1>This is your service page</h1>
  
+ 
+ <a href="/alimama/services/menu.jsp" >Menu</a>
 
+	
  <a href="/alimama/dashboard.jsp">Dashboard</a>
 <%}%>	
 </body>

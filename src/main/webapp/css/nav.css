@@ -1,0 +1,76 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.nav {
+    text-align: center;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    background-color: #F0EEED;
+}
+
+.nav .nav-buttons {
+    padding: 10px;
+}
+
+.nav .nav-buttons .nav-button {
+    padding-right: 15px;
+    display: inline-block;
+}
+
+.nav-button button {
+    font-size: medium;
+    padding: 5px 10px 5px 10px;
+    background-color: #F0EEED;
+    border: none;
+    border-radius: 20px;
+}
+
+.nav-button a  .nav-tabs:hover {
+    color: white;
+    background-color: #609EA2;
+    border-radius: 20px;
+    box-shadow: 5px 2px 5px #aaaaaa;
+}
+
+.goto-dashboard {
+    position: absolute;
+    right: 0;
+}
+
+.goto-dashboard .user-icon svg {
+    height: 20px;
+}
+
+.hidden-dashboard {
+    display: none;
+    background-color: #609EA2;
+    border: solid 10px #609EA2;
+    border-radius: 20px;
+    box-shadow: 5px 2px 5px 2px #aaaaaa;
+}
+
+.hidden-dashboard:hover {
+    display: block;
+}
+
+.user-dashboard:hover+.hidden-dashboard {
+    display: block;
+}
+
+.hidden-dashboard li {
+    display: block;
+}
+
+.hidden-dashboard li button {
+    border-radius: 0;
+    padding: 10px 40px 10px 40px;
+    background-color: #609EA2;
+}
+
+.hidden-dashboard li button:hover {
+    border-radius: 0;
+    color: white;
+}
