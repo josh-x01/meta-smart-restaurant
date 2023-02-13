@@ -6,14 +6,27 @@
     font-family: 'Roboto', sans-serif;
 }
 
+.mobile {
+    position: absolute;
+    top: 2px;
+    left: 10px;
+    display: none;
+    width: 100%;
+    background-color: #F0EEED;
+}
+
+.mobile svg {
+    height: 30px;
+}
+
 .nav {
     display: flex;
     justify-content: space-between;
     position: absolute;
     top: 0;
-    width: 100vw;
+    width: 100%;
     background-color: #F0EEED;
-    padding-top: 10px;
+    padding-top: 15px;
     padding-bottom: 5px;
 }
 
@@ -23,19 +36,44 @@
 
 .nav-button .nav-tabs {
     font-size: medium;
-    padding: 0 10px 0 10px;
     background-color: #F0EEED;
-    padding-bottom: 5px;
     border: none;
-    border-bottom: solid #F0EEED;
 }
 
-.nav-button .nav-tabs:hover {
-    border-bottom: solid #86A3B8;
+.nav-button .hover {
+    background-color: #F0EEED;
+    height: 5px;
+}
+
+.nav-button {
+    margin: 0 10px 0 10px;
+}
+
+.nav-button .show-tab {
+    padding-bottom: 5px;
+}
+
+.nav-button .show-tab:hover + .hover {
+	animation: animate 1s;
+    background-color: #86A3B8;
+}
+
+@keyframes animate {
+	0% {
+		width: 0%;
+        background: #86A3B8;
+	}
+    100% {
+		width: 100%;
+        background: #86A3B8;
+	}
 }
 
 .user-dashboard {
-    padding-right: 1em;
+    position: absolute;
+    top: 15px;
+    right: 10px;
+    z-index: 2;
 }
 
 .user-dashboard svg {
@@ -49,6 +87,7 @@
     border-radius: 20px;
     box-shadow: 5px 2px 5px 2px #aaaaaa;
     position: absolute;
+    top: 32px;
     right: 10px;
     width: 150px;
 }
@@ -88,16 +127,26 @@
 }
 
 @media only screen and (max-width: 500px) {
-    .nav {
-        justify-content: space-between;
-    }
-    .nav li {
-        display: block;
-    }
+
 }
 
-@media only screen and (max-width: 412px) {
-    .nav .nav-buttons {
+@media only screen and (max-width: 430px) {
+    .mobile {
+        display: block;
+    }
+
+    .nav {
+        margin-top: 30px;
         display: none;
+        padding-left: 10px;
+        width: 30%;
+    }
+
+    .user-dashboard {
+        top: 7px;
+    }
+
+    .nav .nav-buttons .nav-button {
+        display: block;
     }
 }
