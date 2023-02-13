@@ -5,12 +5,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="scollbar.css">
     <link rel="stylesheet" href="scroll.css">
+
     <title>Scroll</title>
 </head>
 
 <body>
-    <a href="#two">two</a>
+    <div id="progressbar"></div>
+    <div id="scrollPath"></div>
     <div class="container">
         <section class="one">
             <h1>Fist Page</h1>
@@ -26,7 +29,17 @@
         </section>
     </div>
 
-
+    <script type="text/javascript">
+        let progress = document.getElementById("progressbar");
+        let totalHeight = document.body.scrollHeight -
+        window.innerHeight;
+        window.onscroll = function() {
+            console.log(window.pageYOffset);
+            let progressHeight = (window.pageYOffset /
+                totalHeight) * 100;
+            progress.style.height = progressHeight + "%";
+        }
+    </script>
 </body>
 
 </html>
