@@ -8,15 +8,17 @@
 
 .mobile {
     position: absolute;
-    top: 2px;
-    left: 10px;
-    display: none;
+    padding-top: 2px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     width: 100%;
     background-color: #F0EEED;
 }
 
 .mobile svg {
     height: 30px;
+    padding-left: 10px;
 }
 
 .nav {
@@ -120,19 +122,54 @@
     color: rgb(68, 63, 63);
 }
 
+.b-bar {
+    height: 45px;
+    width: 100%;
+    background-color: #F0EEED;
+    display: none;
+    justify-content: space-between;
+    position: fixed;
+    bottom: 0;
+}
+
+.b-bar .b-tab {
+    display: block;
+    width: 20%;
+    background-color: #F0EEED;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.b-bar .b-tab span {
+    font-size:x-small;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 4px;
+}
+
+.b-bar .b-tab div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.b-bar .b-tab svg {
+    height: 20px;
+    border-radius: 5px;
+}
+
+.s-tab {
+    background-color: red;
+}
+
+.d-tab {
+    border-right-color: #F0EEED;
+}
+
 @media only screen and (max-width: 720px) {
-    .nav .logo {
-        display: none;
-    }
-}
-
-@media only screen and (max-width: 500px) {
-
-}
-
-@media only screen and (max-width: 430px) {
     .mobile {
-        display: block;
+        display: flex;
     }
 
     .nav {
@@ -148,5 +185,28 @@
 
     .nav .nav-buttons .nav-button {
         display: block;
+    }
+    .logo {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 430px) {
+    .mobile {
+        height: 30px;
+    }
+    .mobile .svg, .nav {
+        display: none;
+    }
+
+    .b-bar {
+        display: flex;
+        bottom: 0;
+    }
+}
+
+@media only screen and (max-width: 180px) {
+    .b-bar .b-tab span{
+        display: none;
     }
 }
