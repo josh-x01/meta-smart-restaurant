@@ -203,6 +203,10 @@
         display: flex;
         bottom: 0;
     }
+
+    .logo {
+        display: block;
+    }
 }
 
 @media only screen and (max-width: 180px) {
