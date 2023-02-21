@@ -109,6 +109,7 @@ public class CustomerDataUtil implements UserDataUtil {
 			// create User object from the data
 			if (resultSet.next()) {
 				return new Customer(
+						resultSet.getInt(1),
 						resultSet.getString(2),
 						resultSet.getString(3),
 						resultSet.getString(4),

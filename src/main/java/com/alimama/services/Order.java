@@ -23,6 +23,18 @@ public class Order {
 		this.totalPrice = totalPrice;
 		this.type = type;
 	}
+	
+	public Order(int customerId, int waiterId, float totalPrice, String type) {
+		this.customerId = customerId;
+		this.totalPrice = totalPrice;
+		this.waiterId = waiterId;
+		this.type = type;
+	}
+
+	public Order() {
+		
+	}
+	
 
 	public int getOrderId() {
 		return orderId;
