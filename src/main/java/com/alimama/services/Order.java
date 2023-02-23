@@ -3,8 +3,18 @@ package com.alimama.services;
 public class Order {
 	int orderId, customerId, waiterId, tableId;
 	float totalPrice;
-	String type;
+	String type, time;
 	
+	public Order(int orderId, int customerId, int waiterId, int tableId, float totalPrice, String type, String time) {
+		this.orderId = orderId;
+		this.customerId = customerId;
+		this.waiterId = waiterId;
+		this.tableId = tableId;
+		this.totalPrice = totalPrice;
+		this.type = type;
+		this.time = time;
+	}
+
 	public Order(int orderId, int customerId, int waiterId, int tableId, float totalPrice, String type) {
 		super();
 		this.orderId = orderId;
@@ -29,6 +39,17 @@ public class Order {
 		this.totalPrice = totalPrice;
 		this.waiterId = waiterId;
 		this.type = type;
+	}
+	
+	
+
+	public Order(int customerId, int waiterId,int tableId, float totalPrice, String type, String time) {
+		this.customerId = customerId;
+		this.waiterId = waiterId;
+		this.tableId = tableId;
+		this.totalPrice = totalPrice;
+		this.type = type;
+		this.time = time;
 	}
 
 	public Order() {
@@ -83,4 +104,13 @@ public class Order {
 	public void setType(String type) {
 		this.type = type;
 	}
+
+	public String getTime() {
+		return time;
+	}
+
+	public void setTime(String time) {
+		this.time = time;
+	}
+	
 }

@@ -30,6 +30,10 @@ public class Reservation {
 		this.orderId = orderId;
 		this.receptionId = receptionId;
 	}
+	
+	public Reservation() {
+		
+	}
 
 	public int getReservationId() {
 		return reservationId;

@@ -1,5 +1,6 @@
 package com.alimama.data_util.servicesManager;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -59,6 +60,22 @@ public class MenuDataUtil extends ServicesDataManager{
 		}
 		
 		return null;
+	}
+	
+	
+	public float getMenuPrice(int mid) {
+		sql = "SELECT price FROM alimamadb.menu WHERE mid = ?";
+		try {
+			preparedStatement = connection.prepareStatement(sql);
+			preparedStatement.setInt(1, mid);
+			resultSet = preparedStatement.executeQuery();
+			if (resultSet.next()) {
+				return resultSet.getFloat(1);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return 0;
 	}
 	
 	public boolean removeMenu(int id) {

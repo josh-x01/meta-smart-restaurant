@@ -33,19 +33,36 @@
         <div class="item">
             <img src="<%=m.getImage()%>">
             <h3><%=m.getName() %></h3>
-            <button disabled>ETB <%=m.getPrice()%></button>
-            <input type="checkbox" value="<%= m.getMenuId() %>" name="id">
+            <div class="button">ETB <%=m.getPrice()%></div>
+            <input type="checkbox" value="<%= m.getMenuId() %>" name="id" class="sel" onclick="checker()">
         </div>
 <%
 		}
 		out.print("</div>");
-		out.print("<input type='submit' value='Done'>");
+		out.print("<input type='submit' value='Done' class='done'>");
 		out.print("</form>");
 	}
 
 %>
-
+<br/><br/><br/>
 </section>
+
+<script>
+function checker() {
+	  const items = document.getElementsByClassName("item");
+	for (let i = 0; i < items.length; i++) {
+	  if (items[i].children[3].checked) {
+	    items[i].style.backgroundColor = "#F0EEED";
+	    items[i].children[2].style.backgroundColor = "rgb(203, 15, 15)";
+	  } else {
+	    items[i].style.backgroundColor = "white";
+	    items[i].children[2].style.backgroundColor = "green";
+	  }
+	}
+	}
+
+</script>
+
 
 </body>
 </html>

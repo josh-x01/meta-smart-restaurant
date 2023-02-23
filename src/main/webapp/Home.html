@@ -69,6 +69,7 @@
 .goto-dashboard {
     position: absolute;
     right: 0;
+    z-index: 10;
 }
 
 .goto-dashboard .user-icon svg {
@@ -81,7 +82,7 @@
     border: solid 10px #609EA2;
     border-radius: 20px;
     box-shadow: 5px 2px 5px 2px #aaaaaa;
-    z-index: 2;
+    z-index: 10;
 }
 
 .hidden-dashboard:hover {
@@ -107,6 +108,10 @@
     color: white;
 }
 
+.nav-tabs {
+	color: black;
+}
+
 </style>
 
        <div class="nav">
@@ -118,11 +123,7 @@
                 </a>
             </li>
 
-            <li class="nav-button">
-                <a href="/alimama/services.jsp">
-                    <button class="nav-tabs">Services</button>
-                </a>
-            </li>
+
 
             <li class="nav-button">
                 <a href="/alimama/services/menu.jsp">
@@ -131,7 +132,7 @@
             </li>
 
             <li class="nav-button">
-                <a href="">
+                <a href="/alimama/services/delivery.jsp">
                     <button class="nav-tabs">Delivery</button>
                 </a>
             </li>
@@ -248,8 +249,8 @@
           <div class="u-layout-row">
             <div class="u-container-style u-layout-cell u-left-cell u-size-30 u-layout-cell-1">
               <div class="u-container-layout u-container-layout-5">
-                <a href="Signup.html" class="u-active-grey-15 u-border-2 u-border-hover-white u-border-palette-3-base u-btn u-btn-round u-button-style u-hover-white u-none u-radius-50 u-text-body-alt-color u-text-hover-black u-btn-2" data-animation-name="" data-animation-duration="0" data-animation-direction="">become a member</a>
-                <a href="Signin.html" class="u-border-2 u-border-hover-white u-border-palette-1-base u-btn u-btn-round u-button-style u-hover-white u-none u-radius-50 u-text-hover-black u-text-white u-btn-3">sign in&nbsp;</a>
+                <a href="signup.jsp" class="u-active-grey-15 u-border-2 u-border-hover-white u-border-palette-3-base u-btn u-btn-round u-button-style u-hover-white u-none u-radius-50 u-text-body-alt-color u-text-hover-black u-btn-2" data-animation-name="" data-animation-duration="0" data-animation-direction="">become a member</a>
+                <a href="signin.jsp" class="u-border-2 u-border-hover-white u-border-palette-1-base u-btn u-btn-round u-button-style u-hover-white u-none u-radius-50 u-text-hover-black u-text-white u-btn-3">sign in&nbsp;</a>
               </div>
             </div>
             <div class="u-align-left u-container-align-left u-container-style u-layout-cell u-right-cell u-size-30 u-layout-cell-2">
@@ -290,8 +291,8 @@
     <div class="u-clearfix u-layout-wrap u-layout-wrap-1">
 		<div class="u-layout">
           <div class="u-layout-row">
-    			<a href="/alimama/reservation.html" style="position: absolute;  left: 30%; font-size: 50px;">Reservation</a> 
-    			<a href="/alimama/delivery.html" style="position: absolute;  left: 70%; font-size:50px;">Delivery</a>      
+    			<a href="/alimama/services/reservation.jsp" style="position: absolute;  left: 30%; font-size: 50px;">Reservation</a> 
+    			<a href="/alimama/services/delivery.jsp" style="position: absolute;  left: 70%; font-size:50px;">Delivery</a>      
           </div>
 		</div>
 	</div>

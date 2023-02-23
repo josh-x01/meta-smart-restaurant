@@ -7,6 +7,8 @@
 <title>Admin Page</title>
 </head>
 <body>
+<jsp:include page="../nav.html" />
+<br/><br/><br/>
 <%
 	Board board = (Board) request.getAttribute("board");
 	if (board != null) {
@@ -25,6 +27,8 @@
 
  <a href="/alimama/board/admin-dashboard.jsp">Dashboard</a>
  <a href="/alimama/board/add-admin.jsp">Add Admin</a>
+  <a href="/alimama/board/add-menu.jsp">Add menu</a>
+    <a href="/alimama/board/orders.jsp">Orders</a>
 <%}%>
 
 

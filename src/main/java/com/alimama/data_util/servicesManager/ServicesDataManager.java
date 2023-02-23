@@ -19,13 +19,13 @@ public class ServicesDataManager {
 	// create a constructor for database connection
 	public ServicesDataManager() {
 		try {
-			System.out.println("Connecting alimama database ...");
+//			System.out.println("Connecting alimama database ...");
 			// register MYSQL JDBC driver
 			Class.forName("com.mysql.jdbc.Driver");
 			// create a connection
 			connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/alimamadb", DBUsername, DBPassword);
 			statement = connection.createStatement();
-			System.out.println("[OK] Successfully connected!");
+//			System.out.println("[OK] Successfully connected!");
 		} catch (SQLException e) {
 			System.err.println("[ERROR] Failed to connect with the alimama database!");
 		} catch (Exception e) {

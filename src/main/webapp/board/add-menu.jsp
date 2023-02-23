@@ -7,7 +7,13 @@
 <title>Add Menu</title>
 </head>
 <body>
-
+<jsp:include page="../nav.html" />
+<br/><br/><br/>
+<%
+	if (session.getAttribute("boardSession") == null) {
+		response.sendRedirect("/alimama/admin");
+	}
+%>	
 <form action="/alimama/AddMenu" method="post">
 
 	<input type="text" name="name" placeholder="Menu Name"/>

@@ -1,5 +1,10 @@
 package com.alimama.data_util.servicesManager;
 
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.alimama.services.Order;
 import com.alimama.services.Orders;
 
 public class OrdersManager extends ServicesDataManager{
@@ -23,5 +28,39 @@ public class OrdersManager extends ServicesDataManager{
 			e.printStackTrace();
 		}
 		return false;
+	}
+	
+	public List<Orders> getOrders() {
+		List<Orders> orders = new ArrayList<>();
+		sql = "SELECT * FROM "+table;
+		try {
+			resultSet = statement.executeQuery(sql);
+			while(resultSet.next()) {
+				orders.add(new Orders(
+						resultSet.getInt(1),
+						resultSet.getInt(2)
+						));
+			}
+			return orders;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	public String getOrders(int oid) {
+		sql = "SELECT * FROM "+table+" WHERE oid = " + oid;
+		String orders = "";
+		try {
+			resultSet = statement.executeQuery(sql);
+			while(resultSet.next()) {
+				orders += resultSet.getInt(2) +" ";
+						
+			}
+			return orders;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return null;
 	}
 }

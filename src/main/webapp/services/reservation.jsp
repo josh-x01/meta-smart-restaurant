@@ -10,6 +10,12 @@
 </head>
 
 <body>
+<%
+	if (session.getAttribute("userSession") == null) {
+		response.sendRedirect("/alimama/signin");
+	} else {
+%>	
+
 <jsp:include page="../nav.html" />
 <br/><br/><br/>
     <div class="header">
@@ -17,7 +23,7 @@
     </div>
 
     <div class="container center">
-        <form action="/home" method="post">
+        <form action="/alimama/OrderReservation" method="post">
             <div class="atr">
                 <input type="date" name="date" id="date" required />
             </div>
@@ -47,5 +53,6 @@
 
     </div>
     <script src="../script/reservation.js"></script>
+<%} %>
 </body>
 </html>

@@ -30,6 +30,7 @@ public class AddMenu extends HttpServlet {
 				Float.parseFloat(request.getParameter("price")),
 				request.getParameter("image")
 				));
+		response.sendRedirect("/alimama/success.jsp");
 	}
-
+	
 }

@@ -13,6 +13,7 @@
 <link rel="stylesheet" href="./css/signin_style.css">
 </head>
 <body>
+<jsp:include page="./nav.html" />
 <%
 	User user = (User) session.getAttribute("userSession");
 	if (user != null) {
