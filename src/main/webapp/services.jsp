@@ -15,6 +15,10 @@
 		response.sendRedirect("/alimama/signin");
 	} else {
 		session.setAttribute("password", request.getAttribute("password"));
+		String redirect = request.getParameter("continue");
+		if (redirect != null) {
+			response.sendRedirect(redirect);
+		}
 %>		
 <jsp:include page="nav.html" />
 <br/><br/><br/>

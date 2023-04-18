@@ -67,7 +67,7 @@
                   <label for="agree-term" class="label-agree-term">
                     <span>
                       <span></span>
-                    </span>I agree all statements in <a href="/alimama/term-services.html" class="term-service" target="_blank">Terms of service </a>
+                    </span>I agree all statements in <a href="/alimama/terms" class="term-service" target="_blank">Terms of service </a>
                   </label>
                 </div>
                 <div class="form-group form-button">

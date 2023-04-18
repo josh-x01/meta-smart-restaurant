@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Opps</title>
+</head>
+<body>
+<style>
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-image: url("./materials/images/wrong.jpg");
+}
+
+.content {
+    height: 100%;
+    width: 100%;
+    display: block;
+    text-align: center;
+    margin-top: 50vh;
+    color: white;
+}
+
+.nav {
+    text-align: center;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    background-color: #F0EEED;
+}
+
+.nav .nav-buttons {
+    padding: 10px;
+}
+
+.nav .nav-buttons .nav-button {
+    padding-right: 15px;
+    display: inline-block;
+}
+
+.nav-button button {
+    font-size: medium;
+    padding: 5px 10px 5px 10px;
+    background-color: #F0EEED;
+    border: none;
+    border-radius: 20px;
+}
+
+.nav-button a  .nav-tabs:hover {
+    color: white;
+    background-color: #609EA2;
+    border-radius: 20px;
+    box-shadow: 5px 2px 5px #aaaaaa;
+}
+
+.goto-dashboard {
+    position: absolute;
+    right: 0;
+}
+
+.goto-dashboard .user-icon svg {
+    height: 20px;
+}
+
+.hidden-dashboard {
+    display: none;
+    background-color: #609EA2;
+    border: solid 10px #609EA2;
+    border-radius: 20px;
+    box-shadow: 5px 2px 5px 2px #aaaaaa;
+}
+
+.hidden-dashboard:hover {
+    display: block;
+}
+
+.user-dashboard:hover+.hidden-dashboard {
+    display: block;
+}
+
+.hidden-dashboard li {
+    display: block;
+}
+
+.hidden-dashboard li button {
+    border-radius: 0;
+    padding: 10px 40px 10px 40px;
+    background-color: #609EA2;
+}
+
+.hidden-dashboard li button:hover {
+    border-radius: 0;
+    color: white;
+}
+
+</style>
+
+       <div class="nav">
+        <ul class="nav-buttons">
+
+            <li class="nav-button">
+                <a href="/alimama">
+                    <button class="nav-tabs">Home</button>
+                </a>
+            </li>
+
+
+
+            <li class="nav-button">
+                <a href="/alimama/services/menu.jsp">
+                    <button class="nav-tabs">Menu</button>
+                </a>
+            </li>
+
+            <li class="nav-button">
+                <a href="/alimama/services/delivery.jsp">
+                    <button class="nav-tabs">Delivery</button>
+                </a>
+            </li>
+
+            <li class="nav-button">
+                <a href="/alimama/services/reservation.jsp">
+                    <button class="nav-tabs">Reservation</button>
+                </a>
+            </li>
+
+            <li class="nav-button goto-dashboard">
+                <div class="user-dashboard">
+                    <a href="">
+                        <span class="user-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                <path
+                                    d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z" />
+                            </svg>
+                        </span>
+                    </a>
+                </div>
+                <div class="hidden-dashboard">
+                    <ul class="goto-buttons">
+                        <li>
+                            <a href="/alimama/dashboard.jsp">
+                                <button>Update</button>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <button>History</button>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/alimama/signout.jsp">
+                                <button>Logout</button>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="content">
+<h1>Something went wrong</h1>
+<h3>Check your network connection</h3>
+</div>
+</body>
+</html>

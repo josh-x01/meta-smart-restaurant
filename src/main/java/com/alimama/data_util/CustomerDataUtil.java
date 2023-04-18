@@ -72,6 +72,7 @@ public class CustomerDataUtil implements UserDataUtil {
 		}
 		return users;
 	}
+	
 	// get specific user wit id, phone or email
 	@Override
 	public <T> User getUser(T t) {

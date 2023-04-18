@@ -17,7 +17,7 @@
 	}
 	User user = null;
 	if (session.getAttribute("userSession") == null)
-		response.sendRedirect("/alimama/signin.jsp");
+		response.sendRedirect("/alimama/signin.jsp?continue=http://localhost:8888/alimama/dashboard.jsp");
 	 else
 		user = (User) session.getAttribute("userSession");
 	if (user != null) {

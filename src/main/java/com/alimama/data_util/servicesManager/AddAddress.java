@@ -1,7 +1,5 @@
 package com.alimama.data_util.servicesManager;
 
-import com.alimama.services.Delivery;
-
 public class AddAddress extends ServicesDataManager{
 	String table = "address";
 	

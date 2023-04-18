@@ -14,6 +14,14 @@
 <link rel="stylesheet" href="menu.css">
 </head>
 <body>
+
+<%
+	if (session.getAttribute("userSession") == null) {
+		response.sendRedirect("/alimama/signin.jsp?continue=http://localhost:8888/alimama/services/menu.jsp");
+	}
+%>
+
+
 <jsp:include page="../nav.html" />
 <br/><br/><br/>
     <h1>ALIMAMA MENU</h1>

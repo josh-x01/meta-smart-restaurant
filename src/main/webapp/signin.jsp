@@ -15,6 +15,7 @@
 <body>
 <jsp:include page="./nav.html" />
 <%
+	String con = request.getParameter("continue");
 	User user = (User) session.getAttribute("userSession");
 	if (user != null) {
 		response.sendRedirect("/alimama/services.jsp");
@@ -43,10 +44,21 @@
 						<h2 class="form-title">Sign in</h2>
 						<form method="post" action="/alimama/signin" class="register-form" id="login-form">
 							
+							<%
+								if (con != null) {
+							%>
+								<input type="hidden" name="continue" value="<%= con %>">
+							<%
+								}
+								
+							%>
+							
+							
 							<div class="form-group" style="color: red">
 								<%
-									if (request.getAttribute("error") != null)
-										out.print(request.getAttribute("error")); 
+									if (request.getAttribute("error") != null) {
+										out.print(request.getAttribute("error"));
+									}
 								%>
 							</div>
 							<div class="form-group">

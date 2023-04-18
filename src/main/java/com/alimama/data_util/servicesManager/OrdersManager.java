@@ -3,8 +3,6 @@ package com.alimama.data_util.servicesManager;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-
-import com.alimama.services.Order;
 import com.alimama.services.Orders;
 
 public class OrdersManager extends ServicesDataManager{

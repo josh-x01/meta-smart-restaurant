@@ -29,6 +29,7 @@ public class Signin extends HttpServlet {
 		HttpSession session = request.getSession();
 		// get email from request
 		email = request.getParameter("email");
+		String con = request.getParameter("continue");
 		// check if either of the field are null or empty
 		if (email != null && email != "") {
 			// get user data using email
@@ -49,6 +50,9 @@ public class Signin extends HttpServlet {
 					}
 					// send request and forward to services
 					request.setAttribute("password", request.getParameter("password"));
+					if (con != null) {
+						request.setAttribute("continue", con);
+					}
 					request.getRequestDispatcher("/services.jsp")
 							.forward(request, response);
 				} else {

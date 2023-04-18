@@ -12,7 +12,7 @@
 <body>
 <%
 	if (session.getAttribute("userSession") == null) {
-		response.sendRedirect("/alimama/signin");
+		response.sendRedirect("/alimama/signin.jsp?continue=http://localhost:8888/alimama/services/reservation.jsp");
 	} else {
 %>	
 
